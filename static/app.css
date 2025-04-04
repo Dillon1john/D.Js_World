@@ -133,15 +133,15 @@ background-color: #66BFBF;
 
 
 
-.btn{
-    background-color: #66BFBF;
-    color: white;
-}
+/*.btn{*/
+/*    background-color: #66BFBF;*/
+/*    color: white;*/
+/*}*/
 
-.btn:hover{
-    background-color: white;
-    color: #66BFBF;
-}
+/*.btn:hover{*/
+/*    background-color: white;*/
+/*    color: #66BFBF;*/
+/*}*/
 
 
 .programmer{
@@ -151,7 +151,7 @@ background-color: #66BFBF;
 .top-container{
   background-color: #E4F9F5;
   position: relative;
-  padding-top: 200px;
+  padding-top: 300px;
   padding-bottom: 10px;
 
 }
@@ -301,3 +301,106 @@ background-color: #66BFBF;
   white-space: nowrap;
 
 }
+
+/*Added styling to clouds to animate them*/
+.top-cloud {
+  padding-top: 30px;
+    position: absolute;
+    animation: moveCloud 20s linear infinite;
+    will-change: transform; /* Optimizes animation performance */
+    -webkit-backface-visibility: hidden; /* Prevents flickering */
+    -webkit-perspective: 1000px;
+}
+.bottom-cloud {
+    position: absolute;
+    animation: moveCloudRight 20s linear infinite;
+    will-change: transform; /* Optimizes animation performance */
+    -webkit-backface-visibility: hidden; /* Prevents flickering */
+    -webkit-perspective: 1000px;
+}
+
+/*Animations*/
+@keyframes waveAnim {
+    0%,40%,100%{
+        transform: translateY(0);
+    }
+    20%{
+        transform: translateY(-50px);
+    }
+
+}
+
+@keyframes slideInLeft {
+    from{
+        transform: translateX(-300px);
+    }
+    to{
+        transform: translateX(0);
+
+    }
+}
+
+@keyframes slideInRight {
+    from{
+        transform: translateX(300px);
+    }
+    to{
+        transform: translateX(0);
+
+    }
+}
+@keyframes cloudFloatLeft {
+  0%, 100%{
+    transform: translateX(0);
+  }
+  20%, 80%{
+    transform: translateX(-100px);
+  }
+
+  40%, 60%{
+    transform: translateX(-200px);
+  }
+
+
+}
+
+@keyframes moveCloud {
+    from {
+        right: -150px; /* Start position off-screen right (adjust based on image width) */
+    }
+    to {
+        right: 100%; /* End position off-screen left */
+    }
+}
+
+@keyframes moveCloudRight {
+    from {
+        left: -150px; /* Start position off-screen left (adjust based on image width) */
+    }
+    to {
+        left: 100%; /* End position off-screen right */
+    }
+}
+
+/*Utility classes */
+.slideInLeft{
+      animation: slideInLeft 1s ease-in;
+}
+
+.cloudFloatLeft{
+  animation: cloudFloatLeft 5s ease-in infinite;
+}
+
+.top-cloud-1 {
+    animation: moveCloud 20s linear infinite;
+}
+
+.top-cloud-2 {
+    animation: moveCloud 25s linear infinite;
+}
+
+.top-cloud-3 {
+    animation: moveCloud 30s linear infinite;
+}
+
+
