@@ -3,22 +3,71 @@
 
 {% block content %}
 
-    <div class="top-container">
+<section id="hero">
+  <div class="hero-div">
       <img class="top-cloud " src="{% static 'Portfolio/images/cloud.png' %}" alt="cloud-img">
       <h1>I'm Dillon.</h1>
       <h2 class="programmer">a <span class="pro"> pro</span>grammer.</h2>
       <img class="bottom-cloud" src="{% static 'Portfolio/images/cloud.png' %}" alt="cloud-img">
         <img src="{% static 'Portfolio/images/mountain.png' %}" alt="mountain-img">
     </div>
+</section>
+
 
     <div class="middle-container">
-      <div class="profile">
+    <section id="about">
+       <div class="profile">
         <img src="{% static 'Portfolio/images/prof_pic_.png'%}" alt="personal-photo">
         <h2>Hello.</h2>
-        <p class="intro">I am a backend developer passionate about team collaboration, learning new technologies, and improving my skills.</p>
+           <div class="intro">
+                 <p>Hi! I’m <strong>Dillon John</strong>, a passionate and dedicated Web Developer with a specialization in full-stack development, particularly using Python and Django. With a <strong>Bachelor of Technology in Computer Systems</strong> and professional certifications in <strong>IT Automation</strong> and as an <strong>AWS Certified Developer – Associate</strong>, I bring a solid foundation in programming, cloud architecture, and responsive web design.</p>
+
+  <p>Over the years, I've had the opportunity to work on diverse projects ranging from e-commerce platforms to AI-driven SaaS solutions. Notably, I led the development of <strong>Ghostwriterv2</strong>, a generative AI-based platform utilizing Flask, Python, and Stripe API, where I showcased my ability to handle everything from backend logic to cloud deployment using Render. I also developed an e-commerce site, <strong>NXTPSP</strong>, where I integrated Stripe and Apple Pay, allowing users to purchase retro consoles while creating a seamless experience for both customers and admins with automated order tracking and email notifications.</p>
+
+  <p>My freelance journey through platforms like <strong>Upwork</strong> has equipped me with the skills to work independently, delivering tailored solutions to clients, while ensuring punctuality and technical excellence. I enjoy collaborating with teams to solve real-world problems and focus on creating scalable, user-friendly applications that make an impact. I’m always excited to dive into new projects that push the boundaries of what technology can achieve.</p>
+
+  <p>When I’m not coding, you can find me exploring new tech stacks or contributing to open-source projects.</p>
+
+  <p><strong>Let’s create something impactful together!</strong></p>
+
+
+           </div>
+
       </div>
+    </section>
+
       <hr>
-      <div class="skills">
+
+        <secton class="container-fluid" id="education">
+             <h2 class="text-center" >Education</h2>
+               <div class="row">
+                   <div class=" slideInLeft col-lg-6">
+                       <img src="{% static 'Portfolio/images/City_Tech_ badge.png'%}">
+                   </div>
+                   <div class="col-lg-6">
+                       <h3>Bachelors of Technology</h3>
+                       <h4><strong>Major:</strong> Computer Systems</h4>
+                       <h6>August 2018-May 2023</h6>
+                       <p><i>Graduated Cum Laude</i></p>
+                       <p><i>Member of the National Society of Leadership and Success (NSLS)</i></p>
+                       <p><i>Member of the Collegiate Science and Technology Entry Program (CSTEP)</i></p>
+                   </div>
+               </div>
+            <h2 class="text-center" >Certifications</h2>
+               <div class="text-center">
+                    <h3>AWS Cloud Developer Associate</h3>
+                      <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="cb87439b-259b-4667-a5bb-bcefa7f161a2" data-share-badge-host="https://www.credly.com"></div><script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
+
+
+
+               </div>
+
+
+
+        </secton>
+        <hr>
+        <section id="skills">
+        <div class="skills">
         <h2>My Skills.</h2>
         <div class="skill-row">
           <img class="pyImage" src="{% static 'Portfolio/images/pyimage.jpg'%}" alt="python-png">
@@ -40,6 +89,8 @@
         <a href="#" style="margin-left:2%;"><button class="btn btn-outline-info" >View Projects</button></a>
       </div>
       </div>
+        </section>
+
       <hr>
       <div class="contact-me">
         <h2>Get In Touch</h2>
@@ -54,7 +105,7 @@
       <a class="footer-link" href="https://www.linkedin.com/in/dillon-j-12318a15a/">LinkedIn</a>
       <!-- <a class="footer-link" href="https://twitter.com/">Twitter</a> -->
       <a class="footer-link" href="https://github.com/Dillon1john">Github</a>
-      <p class="tm">© 2021 Dillon John.</p>
+      <p class="tm">© 2025 Dillon John.</p>
     </div>
 
 
