@@ -87,6 +87,10 @@ background-color: #66BFBF;
   color: white;
 }
 
+.nav-item:hover{
+    font-family: 'Cloudy','sans-serif';
+}
+
 
 .p1{
   margin:5px auto 5px;
