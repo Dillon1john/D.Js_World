@@ -1,3 +1,15 @@
+@font-face {
+    font-family: 'Cloudy';
+    src: url('/static/fonts/Cloudy-0W244.ttf') format('truetype');
+
+}
+
+@font-face {
+    font-family: 'SoCloudy';
+    src: url('/static/fonts/SoCloudy-PV7yd.otf') format('truetype');
+
+}
+
 body{
   color: #40514E;
   margin: 0;
@@ -148,7 +160,7 @@ background-color: #66BFBF;
   font-weight: normal;
 }
 
-.top-container{
+.hero-div{
   background-color: #E4F9F5;
   position: relative;
   padding-top: 300px;
@@ -205,7 +217,7 @@ background-color: #66BFBF;
 }
 
 .intro{
-  width: 30%;
+  width: 50%;
   margin: auto;
 }
 .contact-message{
@@ -301,6 +313,16 @@ background-color: #66BFBF;
   white-space: nowrap;
 
 }
+/*Certfication styling*/
+.google_it_cert{
+    width: 60%;
+    height: auto;
+}
+
+.min_cert {
+    margin: 10px 15px;
+}
+
 
 /*Added styling to clouds to animate them*/
 .top-cloud {
