@@ -45,7 +45,7 @@
 
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color: #66BFBF; color: white;">
+    <nav id="navbar" class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color: #66BFBF; color: white;">
         <a class="navbar-brand" href="#" style="font-family: 'Cloudy', sans-serif; color: white;">D.J's World</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -63,7 +63,7 @@
               <a class="nav-link" href="#education">Education & Certifications</a>
             </li>
            <li class="nav-item {% if request.resolver_match.url_name == 'products' %}active{% endif %}">
-              <a class="nav-link" href="#">Projects</a>
+              <a class="nav-link" href="{% url 'projects' %}">Projects</a>
             </li>
            <li class="nav-item {% if request.resolver_match.url_name == 'products' %}active{% endif %}">
               <a class="nav-link" href="#">Socials</a>
