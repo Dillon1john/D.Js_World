@@ -1,12 +1,16 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block content %}
+{% block title %}
+    D.J's World
+{% endblock %}
 
+{% block content %}
+<div data-spy="scroll" data-target="#navbar" data-offset="0">
     <section id="hero">
         <div class="hero-div">
             <img class="top-cloud " src="{% static 'Portfolio/images/cloud.png' %}" alt="cloud-img">
-            <h1>I'm Dillon.</h1>
+            <h1 style="font-family: 'SoCloudy', 'sans-serif'">I'm Dillon.</h1>
             <h2 class="programmer">a <span class="pro"> pro</span>grammer.</h2>
             <img class="bottom-cloud" src="{% static 'Portfolio/images/cloud.png' %}" alt="cloud-img">
             <img src="{% static 'Portfolio/images/mountain.png' %}" alt="mountain-img">
@@ -98,68 +102,74 @@
                         that include:
                     </p>
                 </div>
-                    <div class="row" style="width:90%; margin-left: 15%">
-                        <div class="card col-lg-3 col-md-12 min_cert" >
-                            <img class="card-img-top" src="{% static 'Portfolio/images/crash_course_python_cert_1.png' %}" alt="Crash Course Python">
-                            <div class="card-body">
-                                <h5 class="card-title">Crash Course on Python</h5>
-                                <p class="card-text">Core programming concepts such as data types,
-                            control flow, functions, and object-oriented programming.</p>
+                   <div class="container">
+    <!-- First Row -->
+    <div class="row justify-content-center">
+        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+            <div class="card min_cert">
+                <img class="card-img-top" src="{% static 'Portfolio/images/crash_course_python_cert_1.png' %}" alt="Crash Course Python">
+                <div class="card-body">
+                    <h5 class="card-title">Crash Course on Python</h5>
+                    <p class="card-text">Core programming concepts such as data types, control flow, functions, and object-oriented programming.</p>
+                </div>
+            </div>
+        </div>
 
-                            </div>
-                        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+            <div class="card min_cert">
+                <img class="card-img-top" src="{% static 'Portfolio/images/python_sys_cert_1.png' %}" alt="Python Operating Sys">
+                <div class="card-body">
+                    <h5 class="card-title">Using Python to Interact with the Operating System</h5>
+                    <p class="card-text">Scripting file operations, automating tasks, and interacting with system processes.</p>
+                </div>
+            </div>
+        </div>
 
-                        <div class="card col-lg-3 col-md-12 min_cert" >
-                            <img class="card-img-top" src="{% static 'Portfolio/images/python_sys_cert_1.png' %}" alt="Python Operating Sys">
-                            <div class="card-body">
-                                <h5 class="card-title">Using Python to Interact with the Operating System</h5>
-                                <p class="card-text">Scripting file
-                            operations, automating tasks, and interacting with system processes.</p>
+        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+            <div class="card min_cert">
+                <img class="card-img-top" src="{% static 'Portfolio/images/git_cert_1.png' %}" alt="Introduction to Git">
+                <div class="card-body">
+                    <h5 class="card-title">Introduction to Git and GitHub</h5>
+                    <p class="card-text">Version control fundamentals, branching, collaboration workflows, and open-source contribution practices.</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
-                            </div>
-                        </div>
+    <!-- Second Row -->
+    <div class="row justify-content-center">
+        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+            <div class="card min_cert">
+                <img class="card-img-top" src="{% static 'Portfolio/images/debugging_cert_1.png' %}" alt="Debugging & Troubleshooting">
+                <div class="card-body">
+                    <h5 class="card-title">Troubleshooting and Debugging Techniques</h5>
+                    <p class="card-text">Diagnosing and resolving common software, hardware, and configuration issues using logical and methodical approaches.</p>
+                </div>
+            </div>
+        </div>
 
-                         <div class="card col-lg-3 col-md-12 min_cert">
-                            <img class="card-img-top" src="{% static 'Portfolio/images/git_cert_1.png' %}" alt="Introduction to Git">
-                            <div class="card-body">
-                                <h5 class="card-title">Introduction to Git and GitHub</h5>
-                                <p class="card-text">Version control fundamentals, branching,
-                            collaboration workflows, and open-source contribution practices.</p>
+        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+            <div class="card min_cert">
+                <img class="card-img-top" src="{% static 'Portfolio/images/cloud_configuration_cert_1.png' %}" alt="Cloud Configuration">
+                <div class="card-body">
+                    <h5 class="card-title">Configuration Management and the Cloud</h5>
+                    <p class="card-text">Automating system administration tasks at scale using tools like Puppet and understanding infrastructure as code.</p>
+                </div>
+            </div>
+        </div>
 
-                            </div>
-                        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+            <div class="card min_cert">
+                <img class="card-img-top cert-img" src="{% static 'Portfolio/images/Automation_Python_cert_1.png' %}" alt="Python Automation">
+                <div class="card-body">
+                    <h5 class="card-title">Automating Real-World Tasks with Python</h5>
+                    <p class="card-text">Applying automation to practical IT problems including data parsing, web scraping, and interacting with APIs and system logs.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-                         <div class="card col-lg-3 col-md-12 min_cert">
-                            <img class="card-img-top" src="{% static 'Portfolio/images/debugging_cert_1.png' %}" alt="Debugging & Troubleshooting">
-                            <div class="card-body">
-                                <h5 class="card-title">Troubleshooting and Debugging Techniques</h5>
-                                <p class="card-text">Diagnosing and resolving common
-                            software, hardware, and configuration issues using logical and methodical approaches.</p>
-
-                            </div>
-                        </div>
-
-                           <div class="card col-lg-3 col-md-12 min_cert">
-                            <img class="card-img-top" src="{% static 'Portfolio/images/cloud_configuration_cert_1.png' %}" alt="Cloud Configuration">
-                            <div class="card-body">
-                                <h5 class="card-title">Configuration Management and the Cloud</h5>
-                                <p class="card-text">Automating system administration
-                            tasks at scale using tools like Puppet and understanding infrastructure as code.</p>
-
-                            </div>
-                        </div>
-
-                        <div class="card col-lg-3 col-md-12 min_cert" >
-                            <img class="card-img-top cert-img" src="{% static 'Portfolio/images/Automation_Python_cert_1.png' %}" alt="Python Automation">
-                            <div class="card-body">
-                                <h5 class="card-title">Automating Real-World Tasks with Python</h5>
-                                <p class="card-text">Applying automation to practical
-                            IT problems including data parsing, web scraping, and interacting with APIs and system logs.</p>
-
-                            </div>
-                        </div>
-
-                    </div>
 
                     <p>
                         These certifications demonstrate the ability to develop Python scripts to automate complex tasks,
@@ -229,6 +239,6 @@
         <a class="footer-link" href="https://github.com/Dillon1john">Github</a>
         <p class="tm">© 2025 Dillon John.</p>
     </div>
-
+</div>
 
 {% endblock %}
