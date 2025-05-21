@@ -11,7 +11,7 @@
         <div class="hero-div">
             <img class="top-cloud " src="{% static 'Portfolio/images/cloud.png' %}" alt="cloud-img">
             <h1 style="font-family: 'SoCloudy', 'sans-serif'">I'm Dillon.</h1>
-            <h2 class="programmer">a <span class="pro"> pro</span>grammer.</h2>
+            <h2 class="programmer" style="font-family: 'Montserrat, sans-serif;'">a <span class="pro"> pro</span>grammer.</h2>
             <img class="bottom-cloud" src="{% static 'Portfolio/images/cloud.png' %}" alt="cloud-img">
             <img src="{% static 'Portfolio/images/mountain.png' %}" alt="mountain-img">
         </div>
@@ -59,12 +59,100 @@
         </section>
 
         <hr>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // For slide animations
+                if (entry.target.classList.contains('skillImgLeft') ||
+                    entry.target.classList.contains('skillImgRight') ||
+                    entry.target.classList.contains('skillTxtLeft') ||
+                    entry.target.classList.contains('skillTxtRight')) {
+                    entry.target.classList.add('slide-in');
+                }
+                // For fade animations
+                if (entry.target.classList.contains('projBut')) {
+                    entry.target.classList.add('fade-in');
+                }
+            } else {
+                // Remove classes when scrolling away
+                if (entry.target.classList.contains('skillImgLeft') ||
+                    entry.target.classList.contains('skillImgRight') ||
+                    entry.target.classList.contains('skillTxtLeft') ||
+                    entry.target.classList.contains('skillTxtRight')) {
+                    entry.target.classList.remove('slide-in');
+                }
+                if (entry.target.classList.contains('projBut')) {
+                    entry.target.classList.remove('fade-in');
+                }
+            }
+        });
+    }, {
+        threshold: 0.2,
+        rootMargin: '0px'
+    });
+
+    // Observe all animated elements
+    document.querySelectorAll('.skillImgLeft, .skillImgRight, .skillTxtLeft, .skillTxtRight, .projBut').forEach((element) => {
+        observer.observe(element);
+    });
+});
+
+
+
+        </script>
+
+        <script> document.addEventListener('DOMContentLoaded', function() {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('slide-in');
+            } else {
+                entry.target.classList.remove('slide-in');
+            }
+        });
+    }, {
+        threshold: 0.2,  // Triggers when 20% of the element is visible
+        rootMargin: '0px'  // Can be adjusted to trigger earlier/later
+    });
+
+    // Observe all skill images
+    document.querySelectorAll('.skillImgLeft, .skillImgRight').forEach((element) => {
+        observer.observe(element);
+    });
+});</script>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('slide-in');
+            } else {
+                entry.target.classList.remove('slide-in');
+            }
+        });
+    }, {
+        threshold: 0.2,
+        rootMargin: '0px'
+    });
+
+    // Observe all skill images and text elements
+    document.querySelectorAll('.skillImgLeft, .skillImgRight, .skillTxtLeft, .skillTxtRight').forEach((element) => {
+        observer.observe(element);
+    });
+});
+
+        </script>
         <section id="skills">
             <div class="skills">
                 <h2>My Skills.</h2>
                 <div class="skill-row">
-                    <img class="webimage" style="width: 50%;"src="{% static 'Portfolio/images/webDevImg.png' %}" alt="web-png">
-                    <h3>Web Development</h3>
+                    <img class="skillImgLeft" style="width: 50%;"src="{% static 'Portfolio/images/webDevImg.png' %}" alt="web-png">
+                    <div class="skillTxtRight">
+                        <h3>Web Development</h3>
                     <p>I specialize in building responsive, user-friendly web applications using
                         modern technologies like Python, Django, JavaScript, and HTML/CSS.
                         I’ve developed and deployed full-stack applications including
@@ -74,43 +162,83 @@
                         design, and performance optimization.
 
 </p>
+                    </div>
+
                     <a href="#" style="align-items:center;text-align: center; margin-left: 40%;">
-                        <button class="btn btn-outline-info">View Projects</button>
+                        <button class="btn btn-outline-info projBut">View Projects</button>
                     </a>
                 </div>
 
                 <div class="skill-row">
-                    <img class="javimage" style="width: 50%;" src="{% static 'Portfolio/images/cloudImg.png' %}" alt="java-png">
-                    <h3 class="Java"><a href="#" class="Java">Cloud Deployment & Development</a></h3>
+                    <img class="skillImgRight" style="width: 50%;" src="{% static 'Portfolio/images/cloudImg.png' %}" alt="java-png">
+                    <div class="skillTxtLeft">
+                         <h3 class="Java"><a href="#" class="Java">Cloud Deployment & Development</a></h3>
                     <p>With hands-on experience deploying applications to the cloud, I specialize in using platforms like
                         AWS (EC2, S3, Elastic Beanstalk) and Railway to host scalable and secure web applications.
                         I manage infrastructure as code, configure environments for production-readiness, and ensure
                         smooth CI/CD pipelines for efficient updates. From static file hosting to real-time database connections
                         and secure API integrations, I make sure applications are robust, performant, and easy to maintain in cloud environments.</p>
+                    </div>
+
                     <a href="#" style="margin-left:35%;">
-                        <button class="btn btn-outline-info">View Projects</button>
+                        <button class="btn btn-outline-info projBut">View Projects</button>
+                    </a>
+                </div>
+
+                 <div class="skill-row">
+                    <img class="skillImgLeft" style="width: 50%;"src="{% static 'Portfolio/images/DBImg.webp' %}" alt="web-png">
+                     <div class="skillTxtRight">
+                    <h3>Database Management</h3>
+                    <p style="text-align: right;">I have experience managing both relational and NoSQL databases, including PostgreSQL and MongoDB, for scalable web
+                        applications. From designing efficient data models and writing optimized queries to integrating databases with Django ORM and ensuring
+                        smooth migrations, I focus on building secure and performant data layers. I’ve also worked with cloud-hosted database solutions like Railway and
+                        AWS S3 for seamless deployment and availability. My goal is to ensure that data is reliable, structured, and easy to access for both frontend and backend systems.
+
+</p>
+                     </div>
+                    <a href="#" style="align-items:center;text-align: center; margin-left: 40%;">
+                        <button class="btn btn-outline-info projBut">View Projects</button>
                     </a>
                 </div>
 
                 <div class="skill-row">
-                    <img class="pyImage" src="{% static 'Portfolio/images/pyimage.jpg' %}" alt="python-png">
+                    <img class="skillImgRight" style="width: 45%;" src="{% static 'Portfolio/images/ITImg.png' %}" alt="java-png">
+                    <div class="skillTxtLeft">
+                    <h3 class="Java"><a href="#" class="Java">IT Operations</a></h3>
+                    <p>My background in IT operations includes a solid understanding of systems administration, network configuration,
+                        and operational best practices. I ensure server reliability, monitor application performance, and implement automated tools
+                        to streamline deployments and maintenance. With training in cybersecurity and infrastructure management, I focus on keeping systems secure,
+                        scalable, and aligned with business needs, whether working independently or as part of a cross-functional team.</p>
+                    </div>
+                    <a href="#" style="margin-left:35%;">
+                        <button class="btn btn-outline-info projBut">View Projects</button>
+                    </a>
+                </div>
+                <h3 style="text-align: center; font-family: 'SoCloudy', 'sans-serif';">Programming Languages</h3>
+
+                <div class="skill-row">
+                    <img class="skillImgLeft" src="{% static 'Portfolio/images/pyimage.jpg' %}" alt="python-png">
+                    <div class="skillTxtRight">
                     <h3 class="Python"><a href="#" class="Python">Python</a></h3>
                     <p>With 4+ years of experience with Python, I have knowledge on the ins and outs of this language
                         and use this as my primary choice for projects.
                         I have used tools offered from this language such as numpy, SQLite, flask, selenium, pandas,
                         turtle, tkinter, smtplib, and various others in order to create functional programs.</p>
+                    </div>
                     <a href="#" style="margin-left:35%;">
-                        <button class="btn btn-outline-info">View Projects</button>
+                        <button class="btn btn-outline-info projBut">View Projects</button>
                     </a>
                 </div>
                 <div class="skill-row">
-                    <img class="javimage" src="{% static 'Portfolio/images/javimage.jpg' %}" alt="java-png">
+                    <img class="skillImgRight" src="{% static 'Portfolio/images/javimage.jpg' %}" alt="java-png">
+                    <div class="skillTxtLeft">
                     <h3 class="Java"><a href="#" class="Java">Java</a></h3>
                     <p>With 3+ years of experience with Java, I have used this langauge extensively and have an in depth
                         understanding on the concepts provided by this langauge such as Java streams, springboot, and
                         maven.</p>
+                    </div>
                     <a href="#" style="margin-left:35%;">
-                        <button class="btn btn-outline-info">View Projects</button>
+                        <button class="btn btn-outline-info projBut">View Projects</button>
                     </a>
                 </div>
 
@@ -123,7 +251,7 @@
             <br/><br/>
             <h2 class="text-center">Education</h2>
             <div class="row">
-                <div class=" slideInLeft col-lg-6">
+                <div class="col-lg-6">
                     <img src="{% static 'Portfolio/images/City_Tech_ badge.png' %}">
                 </div>
                 <div class="col-lg-6">
@@ -138,7 +266,8 @@
             <h2 class="text-center">Certifications</h2>
             <div class="text-center">
                 <h3>AWS Cloud Developer Associate</h3>
-                <div data-iframe-width="150" data-iframe-height="270"
+                <!-- TODO Add styling for border to make cert pop more-->
+                <div data-iframe-width="450" data-iframe-height="240"
                      data-share-badge-id="cb87439b-259b-4667-a5bb-bcefa7f161a2"
                      data-share-badge-host="https://www.credly.com"></div>
                 <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
