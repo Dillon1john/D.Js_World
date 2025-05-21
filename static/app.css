@@ -15,19 +15,22 @@ body{
   margin: 0;
   text-align: center;
   font-family: "Merriweather", serif;
+    position: relative;
 
 }
 h1{
   font-size: 5.625rem;
   margin: 50px auto 0 auto;
   /* line-height: 2; */
+
   font-family: "Sacramento", cursive;
   color: #66BFBF;
 
 
 }
 h2{
-  font-family: "Montserrat", sans-serif;
+  /*font-family: "Montserrat", sans-serif;*/
+     font-family: 'Cloudy', 'sans-serif';
   font-size: 2.5rem;
   color: #66BFBF;
   padding-bottom: 10px;
@@ -89,6 +92,9 @@ background-color: #66BFBF;
 
 .nav-item:hover{
     font-family: 'Cloudy','sans-serif';
+}
+.active{
+    font-family: 'Cloudy', 'sans-serif';
 }
 
 
@@ -188,6 +194,8 @@ background-color: #66BFBF;
   line-height: 2;
 
 }
+
+/*Skill styling*/
 .skill-row{
   width: 50%;
   margin:100px auto 100px auto;
@@ -195,6 +203,19 @@ background-color: #66BFBF;
   line-height: 2;
 
 }
+
+.skillImgLeft{
+  /* width: 25%; */
+  float: left;
+  margin-right: 30px;
+}
+
+.skillImgRight{
+  /* width: 25%; */
+  float: right;
+  margin-left: 30px;
+}
+
 
 .tm{
   color: #EAF6F6;
@@ -279,23 +300,6 @@ background-color: #66BFBF;
 }
 
 
-.pyImage{
-  /* width: 25%; */
-  float: left;
-  margin-right: 30px;
-}
-
-.javimage{
-  /* width: 25%; */
-  float: right;
-  margin-left: 30px;
-}
-.webimage{
-  /* width: 25%; */
-  float: left;
-  margin-right: 30px;
-}
-
 
 
 .back_button{
@@ -325,6 +329,21 @@ background-color: #66BFBF;
 
 .min_cert {
     margin: 10px 15px;
+}
+
+/*Project card styling*/
+.card-img-top{
+    max-width: 18rem;
+}
+.card{
+    max-width: 18rem;
+    border: #11999E;
+    border-style: dashed;
+    background-color: #E4F9F5;
+}
+.card-title{
+    font-family: 'Cloudy', 'sans-serif';
+    color: #11999E;
 }
 
 
@@ -430,3 +449,72 @@ background-color: #66BFBF;
 }
 
 
+/* Animations for skills*/
+/*.skill-row {*/
+/*    opacity: 0;*/
+/*    transform: translateX(-100%);*/
+/*    transition: all 1s ease-out;*/
+/*}*/
+
+/*.skill-row:nth-child(even) {*/
+/*    transform: translateX(100%);*/
+/*}*/
+
+/*.skill-row.slide-in {*/
+/*    opacity: 1;*/
+/*    transform: translateX(0);*/
+/*}*/
+.skillImgLeft {
+    opacity: 0;
+    transform: translateX(-100%);  /* Changed to come from left */
+    transition: all 1s ease-out;
+}
+
+.skillImgRight {
+    opacity: 0;
+    transform: translateX(100%);  /* Changed to come from right */
+    transition: all 1s ease-out;
+}
+
+.skillTxtLeft {
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: all 1s ease-out;
+}
+
+.skillTxtRight {
+    opacity: 0;
+    transform: translateX(100%);
+    transition: all 1s ease-out;
+}
+
+/* Common slide-in animation end state */
+.skillImgLeft.slide-in,
+.skillImgRight.slide-in,
+.skillTxtLeft.slide-in,
+.skillTxtRight.slide-in {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.projBut {
+    opacity: 0;
+    transition: all 1.5s ease-out;
+    /* Optional: you can add a small vertical movement */
+    transform: translateY(20px);
+}
+
+.projBut.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+
+/*Mobile changes*/
+@media screen and (max-width: 768px) {
+       .min_cert{
+           margin-left: 25%;
+       }
+
+    }
