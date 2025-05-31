@@ -20,8 +20,10 @@ class Project(models.Model):
     image = models.ImageField(upload_to='projects', blank=True, null=True)
     image2 = models.ImageField(upload_to='projects', blank=True, null=True)
     image3 = models.ImageField(upload_to='projects', blank=True, null=True)
+    image4 = models.ImageField(upload_to='projects', blank=True, null=True)
     video = models.FileField(upload_to='projects', blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
+    slug = models.SlugField(unique=True, blank=True)
 
     def save(self, *args, **kwargs):
         if not self.slug:
@@ -30,7 +32,10 @@ class Project(models.Model):
 
 
 class Category(models.Model):
-    name = models.CharField(max_length=20)
+    name = models.CharField(max_length=50)
 
     class Meta:
         verbose_name_plural = 'Categories'
+
+    def __str__(self):
+        return self.name
