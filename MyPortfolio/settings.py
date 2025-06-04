@@ -35,8 +35,8 @@ else:
     SECRET_KEY = os.environ['SECRET_KEY']
 
 
-ALLOWED_HOSTS = ['127.0.0.1','localhost','https://dillonjdev.com','dillonjdev.com','retro-console-ecommerce-site-production.up.railway.app','https://retro-console-ecommerce-site-production.up.railway.app']
-CSRF_TRUSTED_ORIGINS = ['https://dillonjdev.com','https://retro-console-ecommerce-site-production.up.railway.app']
+ALLOWED_HOSTS = ['127.0.0.1','localhost','https://dillonjdev.com','dillonjdev.com','djsworld-production.up.railway.app','https://djsworld-production.up.railway.app']
+CSRF_TRUSTED_ORIGINS = ['https://dillonjdev.com','https://djsworld-production.up.railway.app']
 
 
 
