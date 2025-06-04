@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block content %}
-    
+
     <script>
         function selectImage(index) {
             // Remove active class from all thumbnails
@@ -42,14 +42,34 @@
     </script>
 
     <style>
-    h3{
-        font-family: 'SoCloudy', 'sans-serif';
-        color: darkcyan;
-    }
+        h3 {
+            font-family: 'SoCloudy', 'sans-serif';
+            color: darkcyan;
+        }
+
+        .project-details {
+            padding: 1rem;
+        }
+
+        /* Center text when no images are shown */
+        .centered-details {
+            text-align: center;
+            margin: 0 auto;
+            max-width: 700px;
+        }
+
+        /* Optional: make it look more centered visually */
+        @media (max-width: 768px) {
+            .centered-details {
+                padding: 1rem 1.5rem;
+            }
+        }
+
     </style>
     <div class="topPage">
         <h1 style="font-family: 'SoCloudy', 'sans-serif';"> {{ project.title }}</h1>
-        <h6><a href="{% url 'projects'  %}" class="back_button" style="font-family: 'Cloudy', 'sans-serif';">Back</a></h6>
+        <h6><a href="{% url 'projects' %}" class="back_button" style="font-family: 'Cloudy', 'sans-serif';">Back</a>
+        </h6>
     </div>
 
     <div class="pythonTable"> <!-- OPEN: pythonTable -->
@@ -67,17 +87,20 @@
                             {% endif %}
                             {% if project.image2 %}
                                 <div class="carousel-item">
-                                    <img src="{{ project.image2.url }}" class="d-block w-100" alt="{{ project.title }}2">
+                                    <img src="{{ project.image2.url }}" class="d-block w-100"
+                                         alt="{{ project.title }}2">
                                 </div>
                             {% endif %}
                             {% if project.image3 %}
                                 <div class="carousel-item">
-                                    <img src="{{ project.image3.url }}" class="d-block w-100" alt="{{ project.title }}3">
+                                    <img src="{{ project.image3.url }}" class="d-block w-100"
+                                         alt="{{ project.title }}3">
                                 </div>
                             {% endif %}
                             {% if project.video %}
                                 <div class="carousel-item">
-                                    <video id="projectVideo" class="d-block w-100" disablePictureInPicture controls controlsList="nodownload noremoteplayback">
+                                    <video id="projectVideo" class="d-block w-100" disablePictureInPicture controls
+                                           controlsList="nodownload noremoteplayback">
                                         <source src="{{ project.video.url }}" type="video/mp4">
                                         Your browser does not support the video tag.
                                     </video>
@@ -85,7 +108,8 @@
                             {% else %}
                                 {% if project.image4 %}
                                     <div class="carousel-item">
-                                        <img src="{{ project.image4.url }}" class="d-block w-100" alt="{{ project.title }}4">
+                                        <img src="{{ project.image4.url }}" class="d-block w-100"
+                                             alt="{{ project.title }}4">
                                     </div>
                                 {% endif %}
                             {% endif %}
@@ -96,22 +120,26 @@
                     <div class="row mt-3 thumbnail-gallery">
                         {% if project.image %}
                             <div class="col-3">
-                                <img src="{{ project.image.url }}" class="img-thumbnail active" alt="{{ project.title }}" onclick="selectImage(0)">
+                                <img src="{{ project.image.url }}" class="img-thumbnail active"
+                                     alt="{{ project.title }}" onclick="selectImage(0)">
                             </div>
                         {% endif %}
                         {% if project.image2 %}
                             <div class="col-3">
-                                <img src="{{ project.image2.url }}" class="img-thumbnail" alt="{{ project.title }}2" onclick="selectImage(1)">
+                                <img src="{{ project.image2.url }}" class="img-thumbnail" alt="{{ project.title }}2"
+                                     onclick="selectImage(1)">
                             </div>
                         {% endif %}
                         {% if project.image3 %}
                             <div class="col-3">
-                                <img src="{{ project.image3.url }}" class="img-thumbnail" alt="{{ project.title }}3" onclick="selectImage(2)">
+                                <img src="{{ project.image3.url }}" class="img-thumbnail" alt="{{ project.title }}3"
+                                     onclick="selectImage(2)">
                             </div>
                         {% endif %}
                         {% if project.image4 %}
                             <div class="col-3">
-                                <img src="{{ project.image4.url }}" class="img-thumbnail" alt="{{ project.title }} Video" onclick="selectImage(3)">
+                                <img src="{{ project.image4.url }}" class="img-thumbnail"
+                                     alt="{{ project.title }} Video" onclick="selectImage(3)">
                             </div>
                         {% endif %}
                     </div> <!-- CLOSE: thumbnail-gallery -->
@@ -119,10 +147,11 @@
 
                 <!-- Details Column -->
                 <div class="col-12 col-lg-6">
-                    <div class="project-details">
+                    <div class="project-details {% if project.image is None %}centered-details{% endif %}">
+
                         {% if project.description %}
                             <div class="detail-item">
-                                <span class="label"><h3  style="font-family: 'SoCloudy', 'sans-serif'; color: darkcyan;">Description:</h3></span>
+                                <span class="label"><h3 style="font-family: 'SoCloudy', 'sans-serif'; color: darkcyan;">Description:</h3></span>
                                 <span class="value">{{ project.description }}</span>
                             </div>
                         {% endif %}
@@ -144,14 +173,16 @@
                         {% if project.github_link %}
                             <div class="detail-item">
                                 <span class="label"><h3>Github Link:</h3></span>
-                                <span class="value"><a href="{{ project.github_link }}">{{ project.github_link }}</a></span>
+                                <span class="value"><a
+                                        href="{{ project.github_link }}">{{ project.github_link }}</a></span>
                             </div>
                         {% endif %}
 
                         {% if project.live_demo_link %}
                             <div class="detail-item">
                                 <span class="label"><h3>Project Link:</h3></span>
-                                <span class="value"><a href="{{ project.live_demo_link }}">{{ project.live_demo_link }}</a></span>
+                                <span class="value"><a
+                                        href="{{ project.live_demo_link }}">{{ project.live_demo_link }}</a></span>
                             </div>
                         {% endif %}
                     </div> <!-- CLOSE: project-details -->
@@ -160,6 +191,7 @@
             </div> <!-- CLOSE: row -->
         </div> <!-- CLOSE: grid row -->
     </div> <!-- CLOSE: pythonTable -->
+    {% include 'Portfolio/includes/footer.html' %}
 {% endblock %}
 
-{% include 'Portfolio/includes/footer.html' %}
+

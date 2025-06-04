@@ -11,21 +11,35 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import os
+from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+#Load our environment variables
+load_dotenv(BASE_DIR / '.env')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-z!80j2wb!3zc_5w0d5(370yqja75)x2!n)phf41e!!ila-(@km'
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+if DEBUG:
+    SECRET_KEY = os.environ.get('SECRET_KEY')
+else:
+    SECRET_KEY = os.environ['SECRET_KEY']
+
+
+ALLOWED_HOSTS = ['127.0.0.1','localhost','https://dillonjdev.com','dillonjdev.com','retro-console-ecommerce-site-production.up.railway.app','https://retro-console-ecommerce-site-production.up.railway.app']
+CSRF_TRUSTED_ORIGINS = ['https://dillonjdev.com','https://retro-console-ecommerce-site-production.up.railway.app']
+
+
+
 
 
 # Application definition
@@ -33,10 +47,12 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.contenttypes',
+    'django.contrib.admin',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Portfolio.apps.PortfolioConfig',
+
 ]
 
 MIDDLEWARE = [
@@ -71,15 +87,36 @@ TEMPLATES = [
 WSGI_APPLICATION = 'MyPortfolio.wsgi.application'
 
 
+if DEBUG:
+    DB_PASSWORD_YO = os.environ.get('DB_PASSWORD_YO')
+else:
+
+    DB_PASSWORD_YO = os.environ['DB_PASSWORD_YO']
+
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
+if DEBUG:
+    # Local development settings
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        }
     }
-}
+else:
+    # Production settings (Railway)
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'railway',
+            'USER': 'postgres',
+            'PASSWORD': DB_PASSWORD_YO,
+            'HOST': 'autorack.proxy.rlwy.net',
+            'PORT': '37266',
+        }
+    }
+
 
 
 # Password validation
@@ -112,6 +149,27 @@ USE_I18N = True
 
 USE_TZ = True
 
+if not DEBUG:
+    # AWS S3 Configuration
+    AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
+    AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
+    AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
+    AWS_S3_REGION_NAME = 'us-east-1'
+    AWS_S3_FILE_OVERWRITE = False
+    AWS_DEFAULT_ACL = None
+    DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+    # Add these new lines
+    AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com'
+    AWS_S3_ADDRESSING_STYLE = 'virtual'  # Add this line
+    AWS_S3_SIGNATURE_VERSION = 's3v4'
+
+#MEDIA FILES
+if DEBUG:
+    MEDIA_URL = '/media/'
+    MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+else:
+    MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/'
+    MEDIA_ROOT = ''  # Not used in production
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
@@ -120,6 +178,11 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR / 'static'
 ]
+
+
+#White noise static stuff
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATIC_ROOT = BASE_DIR / "staticfiles"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
