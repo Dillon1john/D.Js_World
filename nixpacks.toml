@@ -1,0 +1,32 @@
+[phases.setup]
+nixPkgs = [
+    'python39Full',
+    'python39Packages.pip',
+    'python39Packages.virtualenv',
+    'postgresql',
+    'gcc',
+    'zlib',
+    'libjpeg',
+    'libpng',
+    'freetype',
+    'lcms2',
+    'libwebp',
+    'tcl',
+    'tk',
+    'libffi',
+    'openssl'
+]
+
+[phases.install]
+cmds = [
+    'python -m venv /app/venv --system-site-packages',
+    '. /app/venv/bin/activate && pip install --break-system-packages -r requirements.txt'
+]
+
+[phases.build]
+cmds = [
+    '. /app/venv/bin/activate && python manage.py collectstatic --noinput'
+]
+
+[start]
+cmd = '. /app/venv/bin/activate && gunicorn Bari_Site.wsgi'
