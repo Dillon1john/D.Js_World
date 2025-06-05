@@ -1,8 +1,8 @@
 [phases.setup]
 nixPkgs = [
-    'python39Full',
-    'python39Packages.pip',
-    'python39Packages.virtualenv',
+    'python311Full',
+    'python311Packages.pip',
+    'python311Packages.virtualenv',
     'postgresql',
     'gcc',
     'zlib',
@@ -17,6 +17,7 @@ nixPkgs = [
     'openssl'
 ]
 
+
 [phases.install]
 cmds = [
     'python -m venv /app/venv --system-site-packages',
@@ -25,8 +26,11 @@ cmds = [
 
 [phases.build]
 cmds = [
-    '. /app/venv/bin/activate && python manage.py collectstatic --noinput'
+    'python -m venv /opt/venv',
+    '. /opt/venv/bin/activate',
+    'pip install -r requirements.txt'
 ]
 
 [start]
-cmd = '. /app/venv/bin/activate && gunicorn MyPortfolio.wsgi'
+cmd = 'gunicorn MyPortfolio.wsgi:application'
+
