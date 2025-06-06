@@ -36,22 +36,26 @@
     </style>
 {#/* TODO Round corners of cards for projects */#}
 <div class="pythonTable">
-<div class="row justify-content-center">
-    {% for project in projects %}
-        <div class="col-lg-4 col-md-6 col-sm-12 mb-4 project-card card col" style="width: 18rem; margin: 5% 5%;">
-        {% if project.image %}
-            <img class="card-img-top" src="{{ project.image.url }}" alt="Card image cap">
-            {% else %}
-            <img class="card-img-top" src="{% static 'Portfolio/images/placeholderImg.jpg' %}" alt="Card image cap">
-            {% endif %}
-            <div class="card-body">
-                <h5 class="card-title">{{ project.title }}</h5>
-                <p class="card-text">{{ project.subtitle }}</p>
-                <a href="{% url 'project-detail' project.pk %}" class="btn btn-info">Details</a>
+    <div class="row g-4"> <!-- Added g-4 for better gap spacing -->
+        {% for project in projects %}
+            <div class="col-12 col-sm-6 col-lg-4"> <!-- Improved column breakpoints -->
+                <div class="card h-100"> <!-- Added h-100 for equal height cards -->
+                    {% if project.image %}
+                        <img class="card-img-top img-fluid" src="{{ project.image.url }}" alt="{{ project.title }}">
+                    {% else %}
+                        <img class="card-img-top img-fluid" src="{% static 'Portfolio/images/placeholderImg.jpg' %}" alt="Project placeholder image">
+                    {% endif %}
+                    <div class="card-body d-flex flex-column"> <!-- Added flex layout -->
+                        <h5 class="card-title">{{ project.title }}</h5>
+                        <p class="card-text">{{ project.subtitle }}</p>
+                        <a href="{% url 'project-detail' project.pk %}" class="btn btn-info mt-auto">Details</a>
+                    </div>
+                </div>
             </div>
-        </div>
-    {% endfor %}
+        {% endfor %}
+    </div>
 </div>
+
 
 
 
