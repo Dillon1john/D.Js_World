@@ -11,6 +11,19 @@
 </div>
 
     <style>
+    .card{
+        margin-top: 15px;
+        margin-bottom: 25px !important;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        border-radius: 10px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+    
     @keyframes bounce {
     0% {
         transform: translateY(0);
@@ -33,13 +46,39 @@
     will-change: transform;
 }
 
+.card-body {
+    padding: 1.5rem;
+}
+
+.pythonTable {
+    padding: 0 15px;
+}
+
+.row {
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+@media (min-width: 768px){
+    .card{
+        margin: 15px;
+    }
+    .pythonTable {
+        padding: 0 25px;
+    }
+}
+
+.col-12, .col-sm-6, .col-lg-4 {
+    margin-bottom: 20px;
+}
+
     </style>
 {#/* TODO Round corners of cards for projects */#}
 <div class="pythonTable">
-    <div class="row g-4"> <!-- Added g-4 for better gap spacing -->
+    <div class="row gy-5"> <!-- Using gy-5 for vertical gap spacing -->
         {% for project in projects %}
             <div class="col-12 col-sm-6 col-lg-4"> <!-- Improved column breakpoints -->
-                <div class="card h-100"> <!-- Added h-100 for equal height cards -->
+                <div class="card h-100" > <!-- Added h-100 for equal height cards -->
                     {% if project.image %}
                         <img class="card-img-top img-fluid" src="{{ project.image.url }}" alt="{{ project.title }}">
                     {% else %}
