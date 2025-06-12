@@ -36,6 +36,32 @@ margin-left: 15%;">
 </ul>
 </section>
 
+     <span style="text-align: center">Programming Languages:</span>
+<section id="language-select">
+<ul class="nav nav-pills nav-fill" style="background-color: white;
+border: darkcyan dotted;
+width:70%;
+ align-items: center;
+justify-content: center;
+margin-left: 15%;">
+  <li class="nav-item">
+    <a class="nav-link active" href="#" data-language="all">All Languages</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#" data-language="Python">Python</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#" data-language="Java">Java</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#" data-language="C++">C++</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#" data-language="JavaScript">JavaScript</a>
+  </li>
+</ul>
+</section>
+
 
     <style>
     .card{
@@ -91,6 +117,9 @@ margin-left: 15%;">
     border: #11999E dotted;
 }
 
+#language-select .nav-item{
+    border: #11999E dotted;
+}
 
 
 @media (min-width: 768px){
@@ -114,7 +143,9 @@ margin-left: 15%;">
 <div class="pythonTable">
     <div class="row gy-5"> <!-- Using gy-5 for vertical gap spacing -->
         {% for project in projects %}
-            <div class="col-12 col-sm-6 col-lg-4 project-item" data-categories="{% for category in project.category.all %}{{ category.name }}{% if not forloop.last %},{% endif %}{% endfor %}">
+            <div class="col-12 col-sm-6 col-lg-4 project-item" 
+                 data-categories="{% for category in project.category.all %}{{ category.name }}{% if not forloop.last %},{% endif %}{% endfor %}"
+                 data-languages="{% for language in project.programming_language.all %}{{ language.name }}{% if not forloop.last %},{% endif %}{% endfor %}">
                 <div class="card h-100"> <!-- Added h-100 for equal height cards -->
                     {% if project.image %}
                         <img class="card-img-top img-fluid" src="{{ project.image.url }}" alt="{{ project.title }}">
@@ -132,36 +163,48 @@ margin-left: 15%;">
     </div>
 </div>
 
-    <script>
+ <script>
 $(document).ready(function() {
-    // Handle category filter clicks
+    let selectedCategory = 'all';
+    let selectedLanguage = 'all';
+
+    function filterProjects() {
+        $('.project-item').each(function() {
+            const categories = $(this).data('categories') ? $(this).data('categories').toString().split(',') : [];
+            const languages = $(this).data('languages') ? $(this).data('languages').toString().split(',') : [];
+
+            const categoryMatch = (selectedCategory === 'all') || categories.includes(selectedCategory);
+            const languageMatch = (selectedLanguage === 'all') || languages.includes(selectedLanguage);
+
+            if (categoryMatch && languageMatch) {
+                $(this).show();
+            } else {
+                $(this).hide();
+            }
+        });
+    }
+
     $('#category-select .nav-link').click(function(e) {
         e.preventDefault();
-
-        // Update active class
         $('#category-select .nav-link').removeClass('active');
         $(this).addClass('active');
-
-        var selectedCategory = $(this).data('category');
-
-        if (selectedCategory === 'all') {
-            // Show all projects
-            $('.project-item').show();
-        } else {
-            // Hide all projects first
-            $('.project-item').hide();
-
-            // Show only projects with the selected category
-            $('.project-item').each(function() {
-                var projectCategories = $(this).data('categories').split(',');
-                if (projectCategories.includes(selectedCategory)) {
-                    $(this).show();
-                }
-            });
-        }
+        selectedCategory = $(this).data('category');
+        filterProjects();
     });
+
+    $('#language-select .nav-link').click(function(e) {
+        e.preventDefault();
+        $('#language-select .nav-link').removeClass('active');
+        $(this).addClass('active');
+        selectedLanguage = $(this).data('language');
+        filterProjects();
+    });
+
+    // Apply initial filter
+    filterProjects();
 });
 </script>
+
 
     {% include 'Portfolio/includes/footer.html' %}
 
