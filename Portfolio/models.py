@@ -12,7 +12,7 @@ class Project(models.Model):
     title = models.CharField(max_length=100, blank=True)
     subtitle = models.CharField(max_length=100,  blank=True)
     description = models.TextField(blank=True, null=True)
-    programming_language = models.CharField(max_length=20)
+    programming_language = ManyToManyField('Language', blank=True)
     technologies = models.CharField(max_length=100, blank=True)
     category = ManyToManyField('Category', blank=True)
     github_link = models.URLField(blank=True, null=True)
@@ -36,6 +36,15 @@ class Category(models.Model):
 
     class Meta:
         verbose_name_plural = 'Categories'
+
+    def __str__(self):
+        return self.name
+
+class Language(models.Model):
+    name = models.CharField(max_length=50)
+
+    class Meta:
+        verbose_name_plural = 'Languages'
 
     def __str__(self):
         return self.name

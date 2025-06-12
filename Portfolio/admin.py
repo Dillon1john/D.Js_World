@@ -5,9 +5,9 @@ from django.contrib import admin
 from Portfolio.models import *
 
 class ProjectAdmin(admin.ModelAdmin):
-    list_display = ('title', 'programming_language', 'created_at')
-    list_filter = ('programming_language', 'category', 'created_at')
-    search_fields = ('title', 'programming_language', 'category')
+    list_display = ('title', 'created_at')
+    list_filter = ('category', 'created_at')
+    search_fields = ('title', 'category')
     ordering = ('-created_at',)
 
 
@@ -15,5 +15,9 @@ class CategoryAdmin(admin.ModelAdmin):
     list_display = ('name',)
     ordering = ('name',)
 
+class LanguageAdmin(admin.ModelAdmin):
+    list_display = ('name',)
+    ordering = ('name',)
 admin.site.register(Project, ProjectAdmin)
 admin.site.register(Category, CategoryAdmin)
+admin.site.register(Language, LanguageAdmin)
