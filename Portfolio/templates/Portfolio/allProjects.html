@@ -9,6 +9,33 @@
     <h1 style="font-family: 'SoCloudy', 'sans-serif'" > My Projects</h1>
 {#    <h4><a href="index.html" class="back_button">Back</a></h4>#}
 </div>
+    <br/>
+    <span style="text-align: center">Categories:</span>
+<section id="category-select">
+<ul class="nav nav-pills nav-fill" style="background-color: white;
+border: darkcyan dotted;
+width:70%;
+ align-items: center;
+justify-content: center;
+margin-left: 15%;">
+  <li class="nav-item">
+    <a class="nav-link active" href="#" data-category="all">All Projects</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#" data-category="Web Development">Web Development</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#" data-category="Data Structures & Algorithms">Data Structures & Algorithms</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#" data-category="Automation Scripting">Automation Scripting</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#" data-category="Program Development">Program Development</a>
+  </li>
+</ul>
+</section>
+
 
     <style>
     .card{
@@ -59,12 +86,22 @@
     margin-right: -15px;
 }
 
+
+#category-select .nav-item{
+    border: #11999E dotted;
+}
+
+
+
 @media (min-width: 768px){
     .card{
         margin: 15px;
     }
     .pythonTable {
         padding: 0 25px;
+    }
+    #category-select{
+
     }
 }
 
@@ -77,8 +114,8 @@
 <div class="pythonTable">
     <div class="row gy-5"> <!-- Using gy-5 for vertical gap spacing -->
         {% for project in projects %}
-            <div class="col-12 col-sm-6 col-lg-4"> <!-- Improved column breakpoints -->
-                <div class="card h-100" > <!-- Added h-100 for equal height cards -->
+            <div class="col-12 col-sm-6 col-lg-4 project-item" data-categories="{% for category in project.category.all %}{{ category.name }}{% if not forloop.last %},{% endif %}{% endfor %}">
+                <div class="card h-100"> <!-- Added h-100 for equal height cards -->
                     {% if project.image %}
                         <img class="card-img-top img-fluid" src="{{ project.image.url }}" alt="{{ project.title }}">
                     {% else %}
@@ -95,10 +132,36 @@
     </div>
 </div>
 
+    <script>
+$(document).ready(function() {
+    // Handle category filter clicks
+    $('#category-select .nav-link').click(function(e) {
+        e.preventDefault();
 
+        // Update active class
+        $('#category-select .nav-link').removeClass('active');
+        $(this).addClass('active');
 
+        var selectedCategory = $(this).data('category');
 
-</div>
+        if (selectedCategory === 'all') {
+            // Show all projects
+            $('.project-item').show();
+        } else {
+            // Hide all projects first
+            $('.project-item').hide();
+
+            // Show only projects with the selected category
+            $('.project-item').each(function() {
+                var projectCategories = $(this).data('categories').split(',');
+                if (projectCategories.includes(selectedCategory)) {
+                    $(this).show();
+                }
+            });
+        }
+    });
+});
+</script>
 
     {% include 'Portfolio/includes/footer.html' %}
 

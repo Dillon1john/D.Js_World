@@ -26,6 +26,10 @@ class ProjectListView(ListView):
     if model:
         print('Model found')
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['categories'] = Category.objects.all()
+        return context
 
 
 class ProjectDetailView(DetailView):
