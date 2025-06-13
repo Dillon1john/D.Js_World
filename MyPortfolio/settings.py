@@ -27,7 +27,7 @@ load_dotenv(BASE_DIR / '.env')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 if DEBUG:
     SECRET_KEY = os.environ.get('SECRET_KEY')
@@ -113,8 +113,8 @@ else:
             'NAME': 'railway',
             'USER': 'postgres',
             'PASSWORD': DB_PASSWORD_YO,
-            'HOST': 'autorack.proxy.rlwy.net',
-            'PORT': '37266',
+            'HOST': 'centerbeam.proxy.rlwy.net',
+            'PORT': '10507',
         }
     }
 
