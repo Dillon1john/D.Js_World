@@ -23,8 +23,10 @@ class ProjectListView(ListView):
     ordering = ['title']
     context_object_name = 'projects'
     paginate_by = 6
-    if model:
-        print('Model found')
+    
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        return queryset
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -49,9 +51,7 @@ class ProjectDetailView(DetailView):
         context = super().get_context_data(**kwargs)
         project_id = self.kwargs['pk']
         technologies = Project.objects.get(pk=project_id).technologies
+        languages = Project.objects.get(pk=project_id).programming_language.all()
         context['technologies'] = self.split_and_sort(technologies)
+        context['languages'] = languages
         return context
-
-
-
-

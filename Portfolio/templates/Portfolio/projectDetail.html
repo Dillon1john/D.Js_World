@@ -163,7 +163,9 @@
                         <h3>Technologies Used:</h3>
                         <ul>
                             <h4>Programming Language:</h4>
-                            <li><p>{{ project.programming_language }}</p></li>
+                            {% for language in languages %}
+                                <li><p>{{ language }}</p></li>
+                            {% endfor %}
                             <h4>Technologies:</h4>
                             {% for technology in technologies %}
                                 <li><p>{{ technology }}</p></li>
