@@ -12,12 +12,7 @@
     <br/>
     <span style="text-align: center">Categories:</span>
 <section id="category-select">
-<ul class="nav nav-pills nav-fill" style="background-color: white;
-border: darkcyan dotted;
-width:70%;
- align-items: center;
-justify-content: center;
-margin-left: 15%;">
+<ul class="nav nav-pills nav-fill filter-nav">
   <li class="nav-item">
     <a class="nav-link active" href="#" data-category="all">All Projects</a>
   </li>
@@ -25,25 +20,20 @@ margin-left: 15%;">
     <a class="nav-link" href="#" data-category="Web Development">Web Development</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#" data-category="Data Structures & Algorithms">Data Structures & Algorithms</a>
+    <a class="nav-link" href="#" data-category="Data Structures & Algorithms">DS & Algorithms</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#" data-category="Automation Scripting">Automation Scripting</a>
+    <a class="nav-link" href="#" data-category="Automation Scripting">Automation</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#" data-category="Program Development">Program Development</a>
+    <a class="nav-link" href="#" data-category="Program Development">Program Dev</a>
   </li>
 </ul>
 </section>
 
      <span style="text-align: center">Programming Languages:</span>
 <section id="language-select">
-<ul class="nav nav-pills nav-fill" style="background-color: white;
-border: darkcyan dotted;
-width:70%;
- align-items: center;
-justify-content: center;
-margin-left: 15%;">
+<ul class="nav nav-pills nav-fill filter-nav">
   <li class="nav-item">
     <a class="nav-link active" href="#" data-language="all">All Languages</a>
   </li>
@@ -113,14 +103,40 @@ margin-left: 15%;">
 }
 
 
-#category-select .nav-item{
-    border: #11999E dotted;
+.filter-nav {
+    background-color: white;
+    border: darkcyan dotted;
+    width: 95%;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px auto;
+    flex-wrap: wrap;
 }
 
-#language-select .nav-item{
+#category-select .nav-item,
+#language-select .nav-item {
     border: #11999E dotted;
+    min-width: 100px;
 }
 
+.nav-link {
+    font-size: 0.85rem;
+    padding: 0.5rem 0.25rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@media (min-width: 576px) {
+    .filter-nav {
+        width: 90%;
+    }
+    
+    .nav-link {
+        font-size: 0.9rem;
+        padding: 0.5rem;
+    }
+}
 
 @media (min-width: 768px){
     .card{
@@ -129,8 +145,19 @@ margin-left: 15%;">
     .pythonTable {
         padding: 0 25px;
     }
-    #category-select{
+    .filter-nav {
+        width: 80%;
+    }
+    
+    .nav-link {
+        font-size: 1rem;
+        padding: 0.5rem 0.75rem;
+    }
+}
 
+@media (min-width: 992px) {
+    .filter-nav {
+        width: 70%;
     }
 }
 
