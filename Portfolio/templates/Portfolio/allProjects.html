@@ -192,8 +192,8 @@
 
  <script>
 $(document).ready(function() {
-    let selectedCategory = 'all';
-    let selectedLanguage = 'all';
+    let selectedCategory = '{{ selected_category }}';
+    let selectedLanguage = '{{ selected_language }}';
 
     function filterProjects() {
         $('.project-item').each(function() {
@@ -209,6 +209,14 @@ $(document).ready(function() {
                 $(this).hide();
             }
         });
+    }
+
+    function setActiveFilters() {
+        $('#category-select .nav-link').removeClass('active');
+        $('#language-select .nav-link').removeClass('active');
+        
+        $(`#category-select .nav-link[data-category="${selectedCategory}"]`).addClass('active');
+        $(`#language-select .nav-link[data-language="${selectedLanguage}"]`).addClass('active');
     }
 
     $('#category-select .nav-link').click(function(e) {
@@ -227,7 +235,8 @@ $(document).ready(function() {
         filterProjects();
     });
 
-    // Apply initial filter
+    // Set active filters and apply initial filter
+    setActiveFilters();
     filterProjects();
 });
 </script>

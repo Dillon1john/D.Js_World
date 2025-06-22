@@ -32,6 +32,8 @@ class ProjectListView(ListView):
         context = super().get_context_data(**kwargs)
         context['categories'] = Category.objects.all()
         context['languages'] = Language.objects.all()
+        context['selected_category'] = self.request.GET.get('category', 'all')
+        context['selected_language'] = self.request.GET.get('language', 'all')
         return context
 
 
