@@ -6,391 +6,508 @@
 {% endblock %}
 {#/* TODO fix mobile for wording skills*/#}
 {% block content %}
-<div data-spy="scroll" data-target="#navbar" data-offset="0">
-    <section id="hero">
-        <div class="hero-div">
-            <img class="top-cloud " src="{% static 'Portfolio/images/cloud.png' %}" alt="cloud-img">
-            <h1 style="font-family: 'SoCloudy', 'sans-serif'">I'm Dillon.</h1>
-            <h2 class="programmer" style="font-family: 'Montserrat, sans-serif;'">a <span class="pro"> pro</span>grammer.</h2>
-            <img class="bottom-cloud" src="{% static 'Portfolio/images/cloud.png' %}" alt="cloud-img">
-            <img src="{% static 'Portfolio/images/mountain.png' %}" alt="mountain-img">
-        </div>
-    </section>
-
-
-    <div class="middle-container">
-        <section id="about">
-            <br/><br/>
-            <div class="profile">
-                <img class="projBut" src="{% static 'Portfolio/images/prof_pic_.png' %}" alt="personal-photo">
-                <h2>Hello.</h2>
-                <div class="intro">
-                    <p>Hi! I’m <strong>Dillon John</strong>, a passionate and dedicated Web Developer with a
-                        specialization in full-stack development, particularly using Python and Django. With a <strong>Bachelor
-                            of Technology in Computer Systems</strong> and professional certifications in <strong>IT
-                            Automation</strong> and as an <strong>AWS Certified Developer – Associate</strong>, I bring
-                        a solid foundation in programming, cloud architecture, and responsive web design.</p>
-
-                    <p>Over the years, I've had the opportunity to work on diverse projects ranging from e-commerce
-                        platforms to AI-driven SaaS solutions. Notably, I led the development of
-                        <strong>Ghostwriterv2</strong>, a generative AI-based platform utilizing Flask, Python, and
-                        Stripe API, where I showcased my ability to handle everything from backend logic to cloud
-                        deployment using Render. I also developed an e-commerce site, <strong>NXTPSP</strong>, where I
-                        integrated Stripe and Apple Pay, allowing users to purchase retro consoles while creating a
-                        seamless experience for both customers and admins with automated order tracking and email
-                        notifications.</p>
-
-                    <p>My freelance journey through platforms like <strong>Upwork</strong> has equipped me with the
-                        skills to work independently, delivering tailored solutions to clients, while ensuring
-                        punctuality and technical excellence. I enjoy collaborating with teams to solve real-world
-                        problems and focus on creating scalable, user-friendly applications that make an impact. I’m
-                        always excited to dive into new projects that push the boundaries of what technology can
-                        achieve.</p>
-
-                    <p>When I’m not coding, you can find me exploring new tech stacks or contributing to open-source
-                        projects.</p>
-
-                    <p><strong>Let’s create something impactful together!</strong></p>
-
-
-                </div>
-
+    <div data-spy="scroll" data-target="#navbar" data-offset="0">
+        <section id="hero">
+            <div class="hero-div">
+                <img class="top-cloud " src="{% static 'Portfolio/images/cloud.png' %}" alt="cloud-img">
+                <h1 class="hero-title"style="font-family: 'SoCloudy', 'sans-serif'">Dillon John</h1>
+                <h2 class="programmer" style="font-family: 'Montserrat, sans-serif;'"><span class="pro"></span>Web Developer
+                </h2>
+                <img class="bottom-cloud" src="{% static 'Portfolio/images/cloud.png' %}" alt="cloud-img">
+                <img src="{% static 'Portfolio/images/mountain.png' %}" alt="mountain-img">
             </div>
         </section>
 
-        <hr>
 
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                // For slide animations
-                if (entry.target.classList.contains('skillImgLeft') ||
-                    entry.target.classList.contains('skillImgRight') ||
-                    entry.target.classList.contains('skillTxtLeft') ||
-                    entry.target.classList.contains('skillTxtRight')) {
-                    entry.target.classList.add('slide-in');
-                }
-                // For fade animations
-                if (entry.target.classList.contains('projBut')) {
-                    entry.target.classList.add('fade-in');
-                }
-            } else {
-                // Remove classes when scrolling away
-                if (entry.target.classList.contains('skillImgLeft') ||
-                    entry.target.classList.contains('skillImgRight') ||
-                    entry.target.classList.contains('skillTxtLeft') ||
-                    entry.target.classList.contains('skillTxtRight')) {
-                    entry.target.classList.remove('slide-in');
-                }
-                if (entry.target.classList.contains('projBut')) {
-                    entry.target.classList.remove('fade-in');
-                }
-            }
-        });
-    }, {
-        threshold: 0.2,
-        rootMargin: '0px'
-    });
+        <div class="middle-container">
+            <section id="about">
+                <br/><br/>
+                <div class="profile">
+                    <img class="projBut" src="{% static 'Portfolio/images/prof_pic_.png' %}" alt="personal-photo">
+                    <h2>Hello.</h2>
+                    <div class="intro">
+                        <p>I’m <strong>Dillon John</strong>, a passionate and dedicated Web Developer with a
+                            specialization in full-stack development, particularly using Python and Django. With a
+                            <strong>Bachelor
+                                of Technology in Computer Systems</strong> and professional certifications in <strong>IT
+                                Automation</strong> and as an <strong>AWS Certified Developer – Associate</strong>, I
+                            bring
+                            a solid foundation in programming, cloud architecture, and responsive web design.</p>
 
-    // Observe all animated elements
-    document.querySelectorAll('.skillImgLeft, .skillImgRight, .skillTxtLeft, .skillTxtRight, .projBut').forEach((element) => {
-        observer.observe(element);
-    });
-});
+                        <p>Over the years, I've had the opportunity to work on diverse projects ranging from e-commerce
+                            platforms to AI-driven SaaS solutions. Notably, I led the development of
+                            <strong>Ghostwriterv2</strong>, a generative AI-based platform utilizing Flask, Python, and
+                            Stripe API, where I showcased my ability to handle everything from backend logic to cloud
+                            deployment using Render. I also developed an e-commerce site, <strong>NXTPSP</strong>, where
+                            I
+                            integrated Stripe and Apple Pay, allowing users to purchase retro consoles while creating a
+                            seamless experience for both customers and admins with automated order tracking and email
+                            notifications.</p>
+
+                        <p>My freelance journey through platforms like <strong>Upwork</strong> has equipped me with the
+                            skills to work independently, delivering tailored solutions to clients, while ensuring
+                            punctuality and technical excellence. I enjoy collaborating with teams to solve real-world
+                            problems and focus on creating scalable, user-friendly applications that make an impact. I’m
+                            always excited to dive into new projects that push the boundaries of what technology can
+                            achieve.</p>
+
+                        <p>When I’m not coding, you can find me exploring new tech stacks or contributing to open-source
+                            projects.</p>
+
+                        <p><strong>Let’s create something impactful together!</strong></p>
 
 
+                    </div>
 
-        </script>
+                </div>
+            </section>
 
-        <script> document.addEventListener('DOMContentLoaded', function() {
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('slide-in');
-            } else {
-                entry.target.classList.remove('slide-in');
-            }
-        });
-    }, {
-        threshold: 0.2,  // Triggers when 20% of the element is visible
-        rootMargin: '0px'  // Can be adjusted to trigger earlier/later
-    });
+            <hr>
 
-    // Observe all skill images
-    document.querySelectorAll('.skillImgLeft, .skillImgRight').forEach((element) => {
-        observer.observe(element);
-    });
-});</script>
+            <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                    const observer = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                // For slide animations
+                                if (entry.target.classList.contains('skillImgLeft') ||
+                                    entry.target.classList.contains('skillImgRight') ||
+                                    entry.target.classList.contains('skillTxtLeft') ||
+                                    entry.target.classList.contains('skillTxtRight')) {
+                                    entry.target.classList.add('slide-in');
+                                }
+                                // For fade animations
+                                if (entry.target.classList.contains('projBut')) {
+                                    entry.target.classList.add('fade-in');
+                                }
+                            } else {
+                                // Remove classes when scrolling away
+                                if (entry.target.classList.contains('skillImgLeft') ||
+                                    entry.target.classList.contains('skillImgRight') ||
+                                    entry.target.classList.contains('skillTxtLeft') ||
+                                    entry.target.classList.contains('skillTxtRight')) {
+                                    entry.target.classList.remove('slide-in');
+                                }
+                                if (entry.target.classList.contains('projBut')) {
+                                    entry.target.classList.remove('fade-in');
+                                }
+                            }
+                        });
+                    }, {
+                        threshold: 0.2,
+                        rootMargin: '0px'
+                    });
 
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('slide-in');
-            } else {
-                entry.target.classList.remove('slide-in');
-            }
-        });
-    }, {
-        threshold: 0.2,
-        rootMargin: '0px'
-    });
+                    // Observe all animated elements
+                    document.querySelectorAll('.skillImgLeft, .skillImgRight, .skillTxtLeft, .skillTxtRight, .projBut').forEach((element) => {
+                        observer.observe(element);
+                    });
+                });
 
-    // Observe all skill images and text elements
-    document.querySelectorAll('.skillImgLeft, .skillImgRight, .skillTxtLeft, .skillTxtRight').forEach((element) => {
-        observer.observe(element);
-    });
-});
 
-        </script>
-        <section id="skills">
-            <div class="skills">
-                <h2>My Skills.</h2>
-                <div class="skill-row">
-                    <img class="skillImgLeft" style="width: 50%;"src="{% static 'Portfolio/images/webDevImg.png' %}" alt="web-png">
-                    <div class="skillTxtRight">
-                        <h3>Web Development</h3>
-                    <p>I specialize in building responsive, user-friendly web applications using
-                        modern technologies like Python, Django, JavaScript, and HTML/CSS.
-                        I’ve developed and deployed full-stack applications including
-                        e-commerce platforms and SaaS products, with features like payment
-                        integration (Stripe, Apple Pay), cloud hosting (AWS, Railway), and
-                        database management. My workflow emphasizes clean code, intuitive
-                        design, and performance optimization.
+            </script>
+
+            <script> document.addEventListener('DOMContentLoaded', function () {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('slide-in');
+                        } else {
+                            entry.target.classList.remove('slide-in');
+                        }
+                    });
+                }, {
+                    threshold: 0.2,  // Triggers when 20% of the element is visible
+                    rootMargin: '0px'  // Can be adjusted to trigger earlier/later
+                });
+
+                // Observe all skill images
+                document.querySelectorAll('.skillImgLeft, .skillImgRight').forEach((element) => {
+                    observer.observe(element);
+                });
+            });</script>
+
+            <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                    const observer = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                entry.target.classList.add('slide-in');
+                            } else {
+                                entry.target.classList.remove('slide-in');
+                            }
+                        });
+                    }, {
+                        threshold: 0.2,
+                        rootMargin: '0px'
+                    });
+
+                    // Observe all skill images and text elements
+                    document.querySelectorAll('.skillImgLeft, .skillImgRight, .skillTxtLeft, .skillTxtRight').forEach((element) => {
+                        observer.observe(element);
+                    });
+                });
+
+            </script>
+            <section id="skills">
+                <div class="skills">
+                    <h2>My Skills.</h2>
+                    <div class="skill-row">
+                        <img class="skillImgLeft" style="width: 50%;"
+                             src="{% static 'Portfolio/images/webDevImg.png' %}" alt="web-png">
+                        <div class="skillTxtRight">
+                            <h3>Web Development</h3>
+                            <p>I specialize in building responsive, user-friendly web applications using
+                                modern technologies like Python, Django, JavaScript, and HTML/CSS.
+                                I’ve developed and deployed full-stack applications including
+                                e-commerce platforms and SaaS products, with features like payment
+                                integration (Stripe, Apple Pay), cloud hosting (AWS, Railway), and
+                                database management. My workflow emphasizes clean code, intuitive
+                                design, and performance optimization.
+
+                            </p>
+                        </div>
+
+                        <a href="{% url 'projects' %}?category=Web Development"
+                           style="align-items:center;text-align: center; margin-left: 40%;">
+                            <button class="btn btn-outline-info projBut">View Projects</button>
+                        </a>
+                    </div>
+
+
+                    <div class="skill-row">
+                        <img class="skillImgRight" style="width: 50%;"
+                             src="{% static 'Portfolio/images/cloudImg.png' %}" alt="java-png">
+                        <div class="skillTxtLeft">
+                            <h3 class="Java"><a href="#" class="Java">Cloud Deployment & Development</a></h3>
+                            <p>With hands-on experience deploying applications to the cloud, I specialize in using
+                                platforms like
+                                AWS (EC2, S3, Elastic Beanstalk) and Railway to host scalable and secure web
+                                applications.
+                                I manage infrastructure as code, configure environments for production-readiness, and
+                                ensure
+                                smooth CI/CD pipelines for efficient updates. From static file hosting to real-time
+                                database connections
+                                and secure API integrations, I make sure applications are robust, performant, and easy
+                                to maintain in cloud environments.</p>
+                        </div>
+
+                        {#                    <a href="{% url 'projects' %}?language=Python" style="margin-left:35%;">#}
+                        {#                        <button class="btn btn-outline-info projBut">View Projects</button>#}
+                        {#                    </a>lass="btn btn-outline-info projBut">View Projects</button>#}
+                        {#                    </a>#}
+                    </div>
+
+                    <div class="skill-row">
+                        <img class="skillImgLeft" style="width: 50%;"
+                             src="{% static 'Portfolio/images/apiHandle.png' %}" alt="web-png">
+                        <div class="skillTxtRight">
+                            <h3>API Handling</h3>
+                            <p>I have hands-on experience designing, developing, and integrating RESTful APIs to enable
+                                seamless communication
+                                between front-end and back-end systems. Whether consuming third-party APIs like Stripe
+                                and Shopify or building custom
+                                endpoints in Django and Flask, I ensure data is transferred securely and efficiently. I
+                                emphasize clean architecture,
+                                proper authentication (including token-based systems), and scalable structures to
+                                support dynamic application needs.
+                                My projects include implementing user authentication, payment processing, and real-time
+                                data exchange through robust
+                                and reliable API interfaces.
+
+                            </p>
+                        </div>
+
+                        <a href="{% url 'projects' %}?category=API Handling"
+                           style="align-items:center;text-align: center; margin-left: 40%;">
+                            <button class="btn btn-outline-info projBut">View Projects</button>
+                        </a>
+                    </div>
+                    <div class="skill-row">
+                        <img class="skillImgRight" style="width: 45%;" src="{% static 'Portfolio/images/ITImg.png' %}"
+                             alt="java-png">
+                        <div class="skillTxtLeft">
+                            <h3 class="Java"><a href="#" class="Java">IT Operations</a></h3>
+                            <p>My background in IT operations includes a solid understanding of systems administration,
+                                network configuration,
+                                and operational best practices. I ensure server reliability, monitor application
+                                performance, and implement automated tools
+                                to streamline deployments and maintenance. With training in cybersecurity and
+                                infrastructure management, I focus on keeping systems secure,
+                                scalable, and aligned with business needs, whether working independently or as part of a
+                                cross-functional team.</p>
+                        </div>
+                        <a href="{% url 'projects' %}?category=Automation Scripting" style="margin-left:35%;">
+                            <button class="btn btn-outline-info projBut">View Projects</button>
+                        </a>
+                    </div>
+                    <div class="skill-row">
+                        <img class="skillImgLeft" style="width: 50%;" src="{% static 'Portfolio/images/DBImg.webp' %}"
+                             alt="web-png">
+                        <div class="skillTxtRight">
+                            <h3>Database Management</h3>
+                            <p style="text-align: right;">I have experience managing both relational and NoSQL
+                                databases, including PostgreSQL and MongoDB, for scalable web
+                                applications. From designing efficient data models and writing optimized queries to
+                                integrating databases with Django ORM and ensuring
+                                smooth migrations, I focus on building secure and performant data layers. I’ve also
+                                worked with cloud-hosted database solutions like Railway and
+                                AWS S3 for seamless deployment and availability. My goal is to ensure that data is
+                                reliable, structured, and easy to access for both frontend and backend systems.
+
+                            </p>
+                        </div>
+{#                        <a href="#" style="align-items:center;text-align: center; margin-left: 40%;">#}
+{#                            <button class="btn btn-outline-info projBut">View Projects</button>#}
+{#                        </a>#}
+                    </div>
+
+
+                    <div class="skill-row">
+                        <img class="skillImgRight" style="width: 50%;" src="{% static 'Portfolio/images/SecImg.png' %}"
+                             alt="web-png">
+                        <div class="skillTxtLeft">
+                            <h3>Cybersecurity</h3>
+                            <p style="text-align: right;">With a strong foundation in cybersecurity principles, I
+                                prioritize building secure applications by
+                                following best practices in data protection, authentication, and access control. My
+                                experience includes securing
+                                web applications against common vulnerabilities (such as SQL injection, XSS, and CSRF),
+                                implementing HTTPS, and
+                                managing user authentication and permissions within frameworks like Django. I also have
+                                academic training in IT
+                                security operations, giving me a well-rounded understanding of threat detection, system
+                                hardening, and maintaining
+                                the confidentiality, integrity, and availability of data in modern cloud-based
+                                environments.
+
+                            </p>
+                        </div>
+{#                        <a href="#" style="align-items:center;text-align: center; margin-left: 40%;">#}
+{#                            <button class="btn btn-outline-info projBut">View Projects</button>#}
+{#                        </a>#}
+                    </div>
+
+
+                    <h3 style="text-align: center; font-family: 'RobotoSlab', 'sans-serif';">Programming Languages</h3>
+
+                    <div class="skill-row">
+                        <img class="skillImgLeft" src="{% static 'Portfolio/images/pyimage.jpg' %}" alt="python-png">
+                        <div class="skillTxtRight">
+                            <h3 class="Python"><a href="#" class="Python">Python</a></h3>
+                            <p>With over 4 years of hands-on experience, Python is my primary
+                                programming language for developing full-stack applications
+                                and automation tools. I’ve leveraged a wide range of libraries
+                                and frameworks including Django, Flask, NumPy, Pandas, Selenium, SQLite,
+                                Tkinter, Turtle, and smtplib to build scalable web apps, perform
+                                data analysis, automate tasks, and create GUI-based tools.
+                                My strong foundation in Python allows me to write clean,
+                                efficient code and quickly prototype solutions across domains
+                                like web development, scripting, and data processing.
 
 </p>
+                        </div>
+                        <a href="{% url 'projects' %}?language=Python" style="margin-left:35%;">
+                            <button class="btn btn-outline-info projBut">View Projects</button>
+                        </a>
+                    </div>
+                    <div class="skill-row">
+                        <img class="skillImgRight" src="{% static 'Portfolio/images/javimage.jpg' %}" alt="java-png">
+                        <div class="skillTxtLeft">
+                            <h3 class="Java"><a href="#" class="Java">Java</a></h3>
+                            <p>With 3+ years of experience with Java, I have used this langauge extensively and have an
+                                in depth
+                                understanding on the concepts provided by this langauge such as Java streams,
+                                springboot, and
+                                maven.</p>
+                        </div>
+                        <a href="{% url 'projects' %}?language=Java" style="margin-left:35%;">
+                            <button class="btn btn-outline-info projBut">View Projects</button>
+                        </a>
                     </div>
 
-                    <a href="{% url 'projects' %}?category=Web Development" style="align-items:center;text-align: center; margin-left: 40%;">
-                        <button class="btn btn-outline-info projBut">View Projects</button>
-                    </a>
-                </div>
-
-                <div class="skill-row">
-                    <img class="skillImgRight" style="width: 50%;" src="{% static 'Portfolio/images/cloudImg.png' %}" alt="java-png">
-                    <div class="skillTxtLeft">
-                         <h3 class="Java"><a href="#" class="Java">Cloud Deployment & Development</a></h3>
-                    <p>With hands-on experience deploying applications to the cloud, I specialize in using platforms like
-                        AWS (EC2, S3, Elastic Beanstalk) and Railway to host scalable and secure web applications.
-                        I manage infrastructure as code, configure environments for production-readiness, and ensure
-                        smooth CI/CD pipelines for efficient updates. From static file hosting to real-time database connections
-                        and secure API integrations, I make sure applications are robust, performant, and easy to maintain in cloud environments.</p>
+                     <div class="skill-row">
+                        <img class="skillImgLeft" src="{% static 'Portfolio/images/cppLogo.webp' %}" alt="python-png" style="max-width: 30%">
+                        <div class="skillTxtRight">
+                            <h3 class="Python"><a href="#" class="Python">C++</a></h3>
+                            <p>Proficient in C++ with a solid understanding of object-oriented programming, memory management, and performance optimization.
+                                I’ve used C++ for building efficient algorithms, low-level systems programming, and developing console-based applications.
+                                My experience includes working with data structures, file I/O operations, and debugging tools to write clean, modular, and
+                                high-performance code. C++ has also strengthened my understanding of foundational programming concepts, which I regularly
+                                apply across other languages and platforms.</p>
+                        </div>
+                        <a href="{% url 'projects' %}?language=CPP" style="margin-left:35%;">
+                            <button class="btn btn-outline-info projBut">View Projects</button>
+                        </a>
                     </div>
 
-{#                    <a href="{% url 'projects' %}?language=Python" style="margin-left:35%;">#}
-{#                        <button class="btn btn-outline-info projBut">View Projects</button>#}
-{#                    </a>lass="btn btn-outline-info projBut">View Projects</button>#}
-{#                    </a>#}
+
                 </div>
+            </section>
 
-                 <div class="skill-row">
-                    <img class="skillImgLeft" style="width: 50%;"src="{% static 'Portfolio/images/DBImg.webp' %}" alt="web-png">
-                     <div class="skillTxtRight">
-                    <h3>Database Management</h3>
-                    <p style="text-align: right;">I have experience managing both relational and NoSQL databases, including PostgreSQL and MongoDB, for scalable web
-                        applications. From designing efficient data models and writing optimized queries to integrating databases with Django ORM and ensuring
-                        smooth migrations, I focus on building secure and performant data layers. I’ve also worked with cloud-hosted database solutions like Railway and
-                        AWS S3 for seamless deployment and availability. My goal is to ensure that data is reliable, structured, and easy to access for both frontend and backend systems.
+            <hr>
 
-</p>
-                     </div>
-                    <a href="#" style="align-items:center;text-align: center; margin-left: 40%;">
-                        <button class="btn btn-outline-info projBut">View Projects</button>
-                    </a>
-                </div>
-
-                <div class="skill-row">
-                    <img class="skillImgRight" style="width: 45%;" src="{% static 'Portfolio/images/ITImg.png' %}" alt="java-png">
-                    <div class="skillTxtLeft">
-                    <h3 class="Java"><a href="#" class="Java">IT Operations</a></h3>
-                    <p>My background in IT operations includes a solid understanding of systems administration, network configuration,
-                        and operational best practices. I ensure server reliability, monitor application performance, and implement automated tools
-                        to streamline deployments and maintenance. With training in cybersecurity and infrastructure management, I focus on keeping systems secure,
-                        scalable, and aligned with business needs, whether working independently or as part of a cross-functional team.</p>
+            <secton class="container-fluid" id="education">
+                <br/><br/>
+                <h2 class="text-center">Education</h2>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <img src="{% static 'Portfolio/images/City_Tech_ badge.png' %}">
                     </div>
-                    <a href="{% url 'projects' %}?category=Automation Scripting" style="margin-left:35%;">
-                        <button class="btn btn-outline-info projBut">View Projects</button>
-                    </a>
-                </div>
-                <h3 style="text-align: center; font-family: 'SoCloudy', 'sans-serif';">Programming Languages</h3>
-
-                <div class="skill-row">
-                    <img class="skillImgLeft" src="{% static 'Portfolio/images/pyimage.jpg' %}" alt="python-png">
-                    <div class="skillTxtRight">
-                    <h3 class="Python"><a href="#" class="Python">Python</a></h3>
-                    <p>With 4+ years of experience with Python, I have knowledge on the ins and outs of this language
-                        and use this as my primary choice for projects.
-                        I have used tools offered from this language such as numpy, SQLite, flask, selenium, pandas,
-                        turtle, tkinter, smtplib, and various others in order to create functional programs.</p>
+                    <div class="col-lg-6">
+                        <h3>Bachelors of Technology</h3>
+                        <h4><strong>Major:</strong> Computer Systems</h4>
+                        <h6>August 2018-May 2023</h6>
+                        <p><i>Graduated Cum Laude</i></p>
+                        <p><i>Member of the National Society of Leadership and Success (NSLS)</i></p>
+                        <p><i>Member of the Collegiate Science and Technology Entry Program (CSTEP)</i></p>
                     </div>
-                    <a href="{% url 'projects' %}?language=Python" style="margin-left:35%;">
-                        <button class="btn btn-outline-info projBut">View Projects</button>
-                    </a>
                 </div>
-                <div class="skill-row">
-                    <img class="skillImgRight" src="{% static 'Portfolio/images/javimage.jpg' %}" alt="java-png">
-                    <div class="skillTxtLeft">
-                    <h3 class="Java"><a href="#" class="Java">Java</a></h3>
-                    <p>With 3+ years of experience with Java, I have used this langauge extensively and have an in depth
-                        understanding on the concepts provided by this langauge such as Java streams, springboot, and
-                        maven.</p>
+                <h2 class="text-center">Certifications</h2>
+                <div class="text-center">
+                    <h3>AWS Cloud Developer Associate</h3>
+                    <!-- TODO Add styling for border to make cert pop more-->
+                    <div data-iframe-width="450" data-iframe-height="240"
+                         data-share-badge-id="cb87439b-259b-4667-a5bb-bcefa7f161a2"
+                         data-share-badge-host="https://www.credly.com"></div>
+                    <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
+                    <ul>
+                        <li class="text-center" style=" margin-left:25%;width: 50%">
+
+                            Demonstrates proficiency in developing, deploying, and debugging cloud-based applications
+                            using
+                            AWS. Covers core AWS services, serverless development, CI/CD practices, and application
+                            lifecycle management.
+                        </li>
+                    </ul>
+                    <br/>
+
+                    <h3>Google IT Automation with Python</h3>
+                    <img class="google_it_cert" src="{% static 'Portfolio/images/google_it_automation_cert.jpeg' %}">
+                    <div class="text-center" style="width: 50%; margin-left: 25%;">
+                        <p>
+                            Demonstrates proficiency in foundational and intermediate IT support skills, with a focus on
+                            automating real-world tasks using Python. This certification covers six comprehensive
+                            courses
+                            that include:
+                        </p>
                     </div>
-                    <a href="#" style="margin-left:35%;">
-                        <button class="btn btn-outline-info projBut">View Projects</button>
-                    </a>
-                </div>
+                    <div class="container">
+                        <!-- First Row -->
+                        <div class="row justify-content-center">
+                            <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                                <div class="card min_cert">
+                                    <img class="card-img-top"
+                                         src="{% static 'Portfolio/images/crash_course_python_cert_1.png' %}"
+                                         alt="Crash Course Python">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Crash Course on Python</h5>
+                                        <p class="card-text">Core programming concepts such as data types, control flow,
+                                            functions, and object-oriented programming.</p>
+                                    </div>
+                                </div>
+                            </div>
 
-            </div>
-        </section>
+                            <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                                <div class="card min_cert">
+                                    <img class="card-img-top"
+                                         src="{% static 'Portfolio/images/python_sys_cert_1.png' %}"
+                                         alt="Python Operating Sys">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Using Python to Interact with the Operating System</h5>
+                                        <p class="card-text">Scripting file operations, automating tasks, and
+                                            interacting with system processes.</p>
+                                    </div>
+                                </div>
+                            </div>
 
-        <hr>
+                            <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                                <div class="card min_cert">
+                                    <img class="card-img-top" src="{% static 'Portfolio/images/git_cert_1.png' %}"
+                                         alt="Introduction to Git">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Introduction to Git and GitHub</h5>
+                                        <p class="card-text">Version control fundamentals, branching, collaboration
+                                            workflows, and open-source contribution practices.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-        <secton class="container-fluid" id="education">
-            <br/><br/>
-            <h2 class="text-center">Education</h2>
-            <div class="row">
-                <div class="col-lg-6">
-                    <img src="{% static 'Portfolio/images/City_Tech_ badge.png' %}">
-                </div>
-                <div class="col-lg-6">
-                    <h3>Bachelors of Technology</h3>
-                    <h4><strong>Major:</strong> Computer Systems</h4>
-                    <h6>August 2018-May 2023</h6>
-                    <p><i>Graduated Cum Laude</i></p>
-                    <p><i>Member of the National Society of Leadership and Success (NSLS)</i></p>
-                    <p><i>Member of the Collegiate Science and Technology Entry Program (CSTEP)</i></p>
-                </div>
-            </div>
-            <h2 class="text-center">Certifications</h2>
-            <div class="text-center">
-                <h3>AWS Cloud Developer Associate</h3>
-                <!-- TODO Add styling for border to make cert pop more-->
-                <div data-iframe-width="450" data-iframe-height="240"
-                     data-share-badge-id="cb87439b-259b-4667-a5bb-bcefa7f161a2"
-                     data-share-badge-host="https://www.credly.com"></div>
-                <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
-                <ul>
-                    <li class="text-center" style=" margin-left:25%;width: 50%">
+                        <!-- Second Row -->
+                        <div class="row justify-content-center">
+                            <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                                <div class="card min_cert">
+                                    <img class="card-img-top" src="{% static 'Portfolio/images/debugging_cert_1.png' %}"
+                                         alt="Debugging & Troubleshooting">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Troubleshooting and Debugging Techniques</h5>
+                                        <p class="card-text">Diagnosing and resolving common software, hardware, and
+                                            configuration issues using logical and methodical approaches.</p>
+                                    </div>
+                                </div>
+                            </div>
 
-                        Demonstrates proficiency in developing, deploying, and debugging cloud-based applications using
-                        AWS. Covers core AWS services, serverless development, CI/CD practices, and application
-                        lifecycle management.
-                    </li>
-                </ul>
-                <br/>
+                            <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                                <div class="card min_cert">
+                                    <img class="card-img-top"
+                                         src="{% static 'Portfolio/images/cloud_configuration_cert_1.png' %}"
+                                         alt="Cloud Configuration">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Configuration Management and the Cloud</h5>
+                                        <p class="card-text">Automating system administration tasks at scale using tools
+                                            like Puppet and understanding infrastructure as code.</p>
+                                    </div>
+                                </div>
+                            </div>
 
-                <h3>Google IT Automation with Python</h3>
-                <img class="google_it_cert" src="{% static 'Portfolio/images/google_it_automation_cert.jpeg' %}">
-                <div class="text-center" style="width: 50%; margin-left: 25%;">
-                    <p>
-                        Demonstrates proficiency in foundational and intermediate IT support skills, with a focus on
-                        automating real-world tasks using Python. This certification covers six comprehensive courses
-                        that include:
-                    </p>
-                </div>
-                   <div class="container">
-    <!-- First Row -->
-    <div class="row justify-content-center">
-        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-            <div class="card min_cert">
-                <img class="card-img-top" src="{% static 'Portfolio/images/crash_course_python_cert_1.png' %}" alt="Crash Course Python">
-                <div class="card-body">
-                    <h5 class="card-title">Crash Course on Python</h5>
-                    <p class="card-text">Core programming concepts such as data types, control flow, functions, and object-oriented programming.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-            <div class="card min_cert">
-                <img class="card-img-top" src="{% static 'Portfolio/images/python_sys_cert_1.png' %}" alt="Python Operating Sys">
-                <div class="card-body">
-                    <h5 class="card-title">Using Python to Interact with the Operating System</h5>
-                    <p class="card-text">Scripting file operations, automating tasks, and interacting with system processes.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-            <div class="card min_cert">
-                <img class="card-img-top" src="{% static 'Portfolio/images/git_cert_1.png' %}" alt="Introduction to Git">
-                <div class="card-body">
-                    <h5 class="card-title">Introduction to Git and GitHub</h5>
-                    <p class="card-text">Version control fundamentals, branching, collaboration workflows, and open-source contribution practices.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Second Row -->
-    <div class="row justify-content-center">
-        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-            <div class="card min_cert">
-                <img class="card-img-top" src="{% static 'Portfolio/images/debugging_cert_1.png' %}" alt="Debugging & Troubleshooting">
-                <div class="card-body">
-                    <h5 class="card-title">Troubleshooting and Debugging Techniques</h5>
-                    <p class="card-text">Diagnosing and resolving common software, hardware, and configuration issues using logical and methodical approaches.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-            <div class="card min_cert">
-                <img class="card-img-top" src="{% static 'Portfolio/images/cloud_configuration_cert_1.png' %}" alt="Cloud Configuration">
-                <div class="card-body">
-                    <h5 class="card-title">Configuration Management and the Cloud</h5>
-                    <p class="card-text">Automating system administration tasks at scale using tools like Puppet and understanding infrastructure as code.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-            <div class="card min_cert">
-                <img class="card-img-top cert-img" src="{% static 'Portfolio/images/Automation_Python_cert_1.png' %}" alt="Python Automation">
-                <div class="card-body">
-                    <h5 class="card-title">Automating Real-World Tasks with Python</h5>
-                    <p class="card-text">Applying automation to practical IT problems including data parsing, web scraping, and interacting with APIs and system logs.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+                            <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                                <div class="card min_cert">
+                                    <img class="card-img-top cert-img"
+                                         src="{% static 'Portfolio/images/Automation_Python_cert_1.png' %}"
+                                         alt="Python Automation">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Automating Real-World Tasks with Python</h5>
+                                        <p class="card-text">Applying automation to practical IT problems including data
+                                            parsing, web scraping, and interacting with APIs and system logs.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
 
                     <p>
-                        These certifications demonstrate the ability to develop Python scripts to automate complex tasks,
+                        These certifications demonstrate the ability to develop Python scripts to automate complex
+                        tasks,
                         manage systems efficiently, and use modern tools like Git, GitHub, and configuration management
                         platforms—making it ideal for roles in IT support, DevOps, and junior-level Python development.
                     </p>
                 </div>
 
 
+            </secton>
+            <hr>
+
+            <div class="contact-me">
+                <h2>Get In Touch</h2>
+                <h3><em>"Programming isn't about what you know; <br>it's about what you can figure out.” </em> - Chris
+                    Pine
+                </h3>
+                <p class="contact-message">If you are looking for a dedicated programmer that has the patience and drive
+                    to
+                    solve any problem that comes their way, <br>⬇️.</p>
+                <a class="btn btn-outline-info btn-lg" href="mailto:Dillon1john@gmail.com">CONTACT ME</a>
+            </div>
+        </div>
 
 
-
-        </secton>
-        <hr>
-
-        <div class="contact-me">
-            <h2>Get In Touch</h2>
-            <h3><em>"Programming isn't about what you know; <br>it's about what you can figure out.” </em> - Chris Pine
-            </h3>
-            <p class="contact-message">If you are looking for a dedicated programmer that has the patience and drive to
-                solve any problem that comes their way, <br>⬇️.</p>
-            <a class="btn btn-outline-info btn-lg" href="mailto:Dillon1john@gmail.com">CONTACT ME</a>
+        <div class="bottom-container">
+            <a class="footer-link" href="https://www.linkedin.com/in/dillon-j-12318a15a/">LinkedIn</a>
+            <!-- <a class="footer-link" href="https://twitter.com/">Twitter</a> -->
+            <a class="footer-link" href="https://github.com/Dillon1john">Github</a>
+            <p class="tm">© 2025 Dillon John.</p>
         </div>
     </div>
-
-
-    <div class="bottom-container">
-        <a class="footer-link" href="https://www.linkedin.com/in/dillon-j-12318a15a/">LinkedIn</a>
-        <!-- <a class="footer-link" href="https://twitter.com/">Twitter</a> -->
-        <a class="footer-link" href="https://github.com/Dillon1john">Github</a>
-        <p class="tm">© 2025 Dillon John.</p>
-    </div>
-</div>
 
 {% endblock %}
