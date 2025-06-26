@@ -10,6 +10,18 @@
 
 }
 
+@font-face {
+    font-family: 'RobotoSlab';
+    src: url('/static/fonts/RobotoSlab-Regular.ttf') format('truetype');
+
+}
+
+@font-face {
+    font-family: 'RobotoSlabDark';
+    src: url('/static/fonts/RobotoSlab-Black.ttf') format('truetype');
+
+}
+
 body{
   color: #40514E;
   margin: 0;
@@ -34,7 +46,7 @@ h1{
 }
 h2{
   /*font-family: "Montserrat", sans-serif;*/
-     font-family: 'Cloudy', 'sans-serif';
+     font-family: 'RobotoSlabDark', 'sans-serif';
   font-size: 2.5rem;
   color: #66BFBF;
   padding-bottom: 10px;
@@ -95,10 +107,10 @@ background-color: #66BFBF;
 }
 
 .nav-item:hover{
-    font-family: 'Cloudy','sans-serif';
+    font-family: 'RobotoSlabDark','sans-serif';
 }
 .active{
-    font-family: 'Cloudy', 'sans-serif';
+    font-family: 'RobotoSlabDark', 'sans-serif';
 }
 
 
@@ -346,7 +358,7 @@ background-color: #66BFBF;
     background-color: #E4F9F5;
 }
 .card-title{
-    font-family: 'Cloudy', 'sans-serif';
+    font-family: 'RobotoSlabDark', 'sans-serif';
     color: #11999E;
 }
 
@@ -430,7 +442,14 @@ background-color: #66BFBF;
         left: 100%; /* End position off-screen right */
     }
 }
-
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
 /*Utility classes */
 .slideInLeft{
       animation: slideInLeft 1s ease-in;
@@ -512,6 +531,25 @@ background-color: #66BFBF;
     opacity: 1;
     transform: translateY(0);
 }
+
+.hero-title{
+    opacity: 1;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 2s
+
+}
+
+.programmer{
+    opacity: 1;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 6s
+
+}
+
 
 
 
