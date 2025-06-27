@@ -152,7 +152,7 @@
             <section id="skills">
                 <div class="skills">
                     <h2>My Skills.</h2>
-                    <div class="skill-row">
+                    <div class="skill-row" id="WebDev">
                         <img class="skillImgLeft" style="width: 50%;"
                              src="{% static 'Portfolio/images/webDevImg.png' %}" alt="web-png">
                         <div class="skillTxtRight">
@@ -175,7 +175,7 @@
                     </div>
 
 
-                    <div class="skill-row">
+                    <div class="skill-row" id="CloudDev">
                         <img class="skillImgRight" style="width: 50%;"
                              src="{% static 'Portfolio/images/cloudImg.png' %}" alt="java-png">
                         <div class="skillTxtLeft">
@@ -198,7 +198,7 @@
                         {#                    </a>#}
                     </div>
 
-                    <div class="skill-row">
+                    <div class="skill-row" id="API" >
                         <img class="skillImgLeft" style="width: 50%;"
                              src="{% static 'Portfolio/images/apiHandle.png' %}" alt="web-png">
                         <div class="skillTxtRight">
@@ -223,7 +223,7 @@
                             <button class="btn btn-outline-info projBut">View Projects</button>
                         </a>
                     </div>
-                    <div class="skill-row">
+                    <div class="skill-row" id="itOp">
                         <img class="skillImgRight" style="width: 45%;" src="{% static 'Portfolio/images/ITImg.png' %}"
                              alt="java-png">
                         <div class="skillTxtLeft">
@@ -241,7 +241,7 @@
                             <button class="btn btn-outline-info projBut">View Projects</button>
                         </a>
                     </div>
-                    <div class="skill-row">
+                    <div class="skill-row" id="DBman">
                         <img class="skillImgLeft" style="width: 50%;" src="{% static 'Portfolio/images/DBImg.webp' %}"
                              alt="web-png">
                         <div class="skillTxtRight">
@@ -263,7 +263,7 @@
                     </div>
 
 
-                    <div class="skill-row">
+                    <div class="skill-row" id="cySec">
                         <img class="skillImgRight" style="width: 50%;" src="{% static 'Portfolio/images/SecImg.png' %}"
                              alt="web-png">
                         <div class="skillTxtLeft">
@@ -291,7 +291,7 @@
 
                     <h3 style="text-align: center; font-family: 'RobotoSlab', 'sans-serif';">Programming Languages</h3>
 
-                    <div class="skill-row">
+                    <div class="skill-row" id="py">
                         <img class="skillImgLeft" src="{% static 'Portfolio/images/pyimage.jpg' %}" alt="python-png">
                         <div class="skillTxtRight">
                             <h3 class="Python"><a href="#" class="Python">Python</a></h3>
@@ -311,7 +311,7 @@
                             <button class="btn btn-outline-info projBut">View Projects</button>
                         </a>
                     </div>
-                    <div class="skill-row">
+                    <div class="skill-row" id="jv">
                         <img class="skillImgRight" src="{% static 'Portfolio/images/javimage.jpg' %}" alt="java-png">
                         <div class="skillTxtLeft">
                             <h3 class="Java"><a href="#" class="Java">Java</a></h3>
@@ -326,7 +326,7 @@
                         </a>
                     </div>
 
-                     <div class="skill-row">
+                     <div class="skill-row" id="cpp">
                         <img class="skillImgLeft" src="{% static 'Portfolio/images/cppLogo.webp' %}" alt="python-png" style="max-width: 30%">
                         <div class="skillTxtRight">
                             <h3 class="Python"><a href="#" class="Python">C++</a></h3>
@@ -335,6 +335,42 @@
                                 My experience includes working with data structures, file I/O operations, and debugging tools to write clean, modular, and
                                 high-performance code. C++ has also strengthened my understanding of foundational programming concepts, which I regularly
                                 apply across other languages and platforms.</p>
+                        </div>
+                        <a href="{% url 'projects' %}?language=CPP" style="margin-left:35%;">
+                            <button class="btn btn-outline-info projBut">View Projects</button>
+                        </a>
+                    </div>
+                      <div class="skill-row" id="jvs">
+                        <img class="skillImgRight" src="{% static 'Portfolio/images/jvsLogo.png' %}" alt="java-png">
+                        <div class="skillTxtLeft">
+                            <h3 class="Java"><a href="#" class="Java">JavaScript</a></h3>
+                            <p>I use JavaScript to bring interactivity and dynamic behavior
+                                to web applications. With experience in both vanilla JavaScript
+                                and modern libraries like jQuery, I create responsive user interfaces,
+                                handle client-side logic, and integrate APIs effectively. From building
+                                dynamic form validations to managing asynchronous data with fetch and AJAX,
+                                I rely on JavaScript to enhance the user experience and functionality of the
+                                front-end. My skillset also includes DOM manipulation, event handling, and
+                                integrating JavaScript seamlessly with backend technologies like Python and Django.
+                            </p>
+                        </div>
+                        <a href="{% url 'projects' %}?language=JavaScript" style="margin-left:35%;">
+                            <button class="btn btn-outline-info projBut">View Projects</button>
+                        </a>
+                    </div>
+
+                      <div class="skill-row" id="html">
+                        <img class="skillImgLeft" src="{% static 'Portfolio/images/htmlLogo_.jpg' %}" alt="python-png" style="max-width: 30%">
+                        <div class="skillTxtRight">
+                            <h3 class="Python"><a href="#" class="Python">HTML & CSS</a></h3>
+                            <p>I use HTML and CSS to build clean, accessible, and responsive
+                                layouts for websites and applications. With a strong grasp of
+                                semantic HTML and modern CSS practices—including Flexbox, Grid,
+                                and media queries—I create visually appealing and mobile-friendly
+                                user interfaces. My styling work emphasizes consistency, usability,
+                                and cross-browser compatibility, ensuring a seamless experience across
+                                devices. I also integrate frameworks like Bootstrap and customize styles
+                                to align with project needs and branding.</p>
                         </div>
                         <a href="{% url 'projects' %}?language=CPP" style="margin-left:35%;">
                             <button class="btn btn-outline-info projBut">View Projects</button>

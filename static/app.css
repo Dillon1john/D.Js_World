@@ -30,7 +30,11 @@ body{
     position: relative;
 
 }
+html{
+     scroll-padding-top: 100px;
+}
 html,body{
+
     overflow-x:hidden;
     max-width: 100%;
 }
