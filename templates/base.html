@@ -65,8 +65,8 @@
            <li class="nav-item {% if request.resolver_match.url_name == 'projects' %}active{% endif %}">
               <a class="nav-link" href="{% url 'projects' %}">Projects</a>
             </li>
-           <li class="nav-item {% if request.resolver_match.url_name == 'products' %}active{% endif %}">
-              <a type='button' class="nav-link"  data-bs-toggle="modal" data-bs-target="#exampleModal">Socials</a>
+           <li class="nav-item">
+              <a class="nav-link" data-toggle="modal" data-target="#socialsModal" href="#">Socials</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -93,19 +93,19 @@
       </nav>
 
     <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+<div class="modal fade" id="socialsModal" tabindex="-1" role="dialog" aria-labelledby="socialsModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      <div class="modal-header" style="background-color: #66BFBF">
+        <h5 class="modal-title" id="socialsModalLabel" style="font-family: 'RobotoSlabDark', 'sans-serif'">Connect With Me</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+      <div class="modal-body text-center">
+        <a href="https://www.linkedin.com/in/dillon-j/" class="btn btn-primary m-2"><i class="fab fa-linkedin"></i> LinkedIn</a>
+{#        <a href="#" class="btn btn-info m-2"><i class="fab fa-twitter"></i> Twitter</a>#}
+        <a href="https://github.com/Dillon1john" class="btn btn-dark m-2"><i class="fab fa-github"></i> GitHub</a>
       </div>
     </div>
   </div>
