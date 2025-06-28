@@ -164,7 +164,11 @@
                         <ul>
                             <h4>Programming Language:</h4>
                             {% for language in languages %}
+                                {% if language|upper == 'CPP' %}
+                                <li><p>C++</p></li>
+                                {% else %}
                                 <li><p>{{ language }}</p></li>
+                                {% endif %}
                             {% endfor %}
                             <h4>Technologies:</h4>
                             {% for technology in technologies %}
