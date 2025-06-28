@@ -113,6 +113,15 @@ background-color: #66BFBF;
 .nav-item:hover{
     font-family: 'RobotoSlabDark','sans-serif';
 }
+
+
+.filter-nav{
+    border: solid #11999E !important;
+
+}
+.filter-nav .nav-item{
+    border: solid #11999E !important;
+}
 .active{
     font-family: 'RobotoSlabDark', 'sans-serif';
 }
