@@ -20,6 +20,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 #Load our environment variables
 load_dotenv(BASE_DIR / '.env')
 
+# Debug: Print loaded environment variables
+print(f"Loaded EMAIL_HOST_USER from .env: {os.environ.get('EMAIL_HOST_USER')}")
+print(f"Loaded SMTP_EMAIL from .env: {os.environ.get('SMTP_EMAIL')}")
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
@@ -189,3 +193,37 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+#Add Stripe settings
+if  DEBUG:
+    STRIPE_PUBLISHABLE_KEY = os.environ.get('STRIPE_PUBLISHABLE_KEY')
+    STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY')
+    STRIPE_WEBHOOK_SECRET = os.environ.get('STRIPE_WEBHOOK_SECRET')
+else:
+    STRIPE_PUBLISHABLE_KEY = os.environ['STRIPE_PUBLISHABLE_KEY']
+    STRIPE_SECRET_KEY = os.environ['STRIPE_SECRET_KEY']
+    STRIPE_WEBHOOK_SECRET = os.environ['STRIPE_WEBHOOK_SECRET']
+
+
+#Add email settings
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+if DEBUG:
+    EMAIL_HOST = os.environ.get('EMAIL_HOST')
+    EMAIL_PORT = os.environ.get('EMAIL_PORT')
+    EMAIL_USE_TLS = True
+    EMAIL_HOST_USER = 'djportfolio428@gmail.com'
+    EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+    DEFAULT_FROM_EMAIL = 'djportfolio428@gmail.com'
+    print(f"DEBUG mode - EMAIL_HOST_USER set to: {EMAIL_HOST_USER}")
+    VENDOR_EMAIL = os.environ.get('VENDOR_EMAIL')
+    DEVELOPER_EMAIL = os.environ.get('DEVELOPER_EMAIL')
+else:
+    EMAIL_HOST = os.environ['EMAIL_HOST']
+    EMAIL_PORT = os.environ['EMAIL_PORT']
+    EMAIL_USE_TLS = True
+    EMAIL_HOST_USER = os.environ['EMAIL_HOST_USER']
+    EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']
+    DEFAULT_FROM_EMAIL = os.environ['EMAIL_HOST_USER']
+    VENDOR_EMAIL = os.environ['VENDOR_EMAIL']
+    DEVELOPER_EMAIL = os.environ['DEVELOPER_EMAIL']
