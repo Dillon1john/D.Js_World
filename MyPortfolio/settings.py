@@ -195,16 +195,6 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-#Add Stripe settings
-if  DEBUG:
-    STRIPE_PUBLISHABLE_KEY = os.environ.get('STRIPE_PUBLISHABLE_KEY')
-    STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY')
-    STRIPE_WEBHOOK_SECRET = os.environ.get('STRIPE_WEBHOOK_SECRET')
-else:
-    STRIPE_PUBLISHABLE_KEY = os.environ['STRIPE_PUBLISHABLE_KEY']
-    STRIPE_SECRET_KEY = os.environ['STRIPE_SECRET_KEY']
-    STRIPE_WEBHOOK_SECRET = os.environ['STRIPE_WEBHOOK_SECRET']
-
 
 #Add email settings
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
