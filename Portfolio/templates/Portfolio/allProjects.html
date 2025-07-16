@@ -9,8 +9,7 @@
     <h1 style="font-family: 'RobotoSlabDark', 'sans-serif'" > My Projects</h1>
 {#    <h4><a href="index.html" class="back_button">Back</a></h4>#}
 </div>
-    <br/>
-    <span style="text-align: center; font-family: 'RobotoSlabDark', 'sans-serif'; color: darkblue">Categories:</span>
+    <span style="text-align: center; font-family: 'RobotoSlabDark', 'sans-serif'; color: darkblue; display: block; margin: 20px 0 10px 0;">Categories:</span>
 <section id="category-select">
 <ul class="nav nav-pills nav-fill filter-nav">
   <li class="nav-item">
@@ -34,7 +33,7 @@
 </ul>
 </section>
 
-     <span style="text-align: center; font-family: 'RobotoSlabDark', 'sans-serif'; color: darkblue">Programming Languages:</span>
+     <span style="text-align: center; font-family: 'RobotoSlabDark', 'sans-serif'; color: darkblue; display: block; margin: 20px 0 10px 0;">Programming Languages:</span>
 <section id="language-select">
 <ul class="nav nav-pills nav-fill filter-nav" >
   <li class="nav-item">
@@ -61,8 +60,7 @@
 
     <style>
     .card{
-        margin-top: 15px;
-        margin-bottom: 25px !important;
+        margin-bottom: 15px;
         box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         border-radius: 10px;
         transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -149,10 +147,6 @@ height: 35%;
 }
 
 @media (min-width: 768px){
-    .card{
-        margin: 15px;
-        margin-right: 25%;
-    }
     .pythonTable {
         padding: 0 25px;
     }
@@ -173,13 +167,17 @@ height: 35%;
 }
 
 .col-12, .col-sm-6, .col-lg-4 {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
+}
+
+.pythonTable {
+    margin-bottom: 30px;
 }
 
     </style>
 {#/* TODO Round corners of cards for projects */#}
 <div class="pythonTable">
-    <div class="row gy-5"> <!-- Using gy-5 for vertical gap spacing -->
+    <div class="row gy-3"> <!-- Using gy-3 for better vertical spacing -->
         {% for project in projects %}
             <div class="col-12 col-sm-6 col-lg-4 project-item" 
                  data-categories="{% for category in project.category.all %}{{ category.name }}{% if not forloop.last %},{% endif %}{% endfor %}"
