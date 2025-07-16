@@ -48,29 +48,36 @@
     .centered-container {
         display: flex;
         justify-content: center;
-        align-items: center;
-        min-height: 70vh;
+        align-items: flex-start;
+        min-height: 60vh;
         width: 100%;
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
+        padding: 2rem 0;
+        text-align: center;
     }
 
     .centered-details {
         max-width: 600px;
-        text-align: center;
         padding: 2rem;
+        margin: 0 auto;
     }
+
+    .topPage h1 {
+        font-family: 'RobotoSlabDark', 'sans-serif';
+    }
+
+    .back_button {
+        font-family: 'RobotoSlabDark', 'sans-serif';
+    }
+
 </style>
 
 <div class="topPage">
-    <h1 style="font-family: 'RobotoSlabDark', 'sans-serif';"> {{ project.title }}</h1>
-    <h6><a href="{% url 'projects' %}" class="back_button" style="font-family: 'RobotoSlabDark', 'sans-serif';">Back</a></h6>
+    <h1> {{ project.title }}</h1>
+    <h6><a href="{% url 'projects' %}" class="back_button">Back</a></h6>
 </div>
 
-<div class="pythonTable">
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
-        <div class="row">
+<div class="container-fluid">
+    <div class="row">
             <!-- Image Column -->
             <div class="col-12 col-lg-6 mb-4 mb-lg-0">
                 <div id="projectCarousel" class="carousel slide" data-bs-ride="false">
@@ -137,12 +144,14 @@
 
             <!-- Details Column -->
             {% if not project.image and not project.image2 and not project.image3 and not project.image4 and not project.video %}
-            <div class="col-12">
-                <div class="centered-container">
-                    <div class="project-details centered-details">
+                <!-- No image/video present, use the centered layout -->
+                <div class="col-12">
+                    <div class="centered-container justify-content-center">
+                        <div class="project-details centered-details">
             {% else %}
-            <div class="col-12 col-lg-6">
-                <div class="project-details">
+                <!-- Image or video is present, show the regular layout -->
+                <div class="col-12 col-lg-6">
+                    <div class="project-details">
             {% endif %}
 
                     {% if project.description %}
@@ -158,9 +167,9 @@
                             <h4>Programming Language:</h4>
                             {% for language in languages %}
                                 {% if language|upper == 'CPP' %}
-                                <li><p>C++</p></li>
+                                    <li><p>C++</p></li>
                                 {% else %}
-                                <li><p>{{ language }}</p></li>
+                                    <li><p>{{ language }}</p></li>
                                 {% endif %}
                             {% endfor %}
                             <h4>Technologies:</h4>
@@ -173,14 +182,14 @@
                     {% if project.github_link %}
                         <div class="detail-item">
                             <h3>Github Link:</h3>
-                            <span class="value"><a href="{{ project.github_link }}"  target="_blank">{{ project.github_link }}</a></span>
+                            <span class="value"><a href="{{ project.github_link }}" target="_blank">{{ project.github_link }}</a></span>
                         </div>
                     {% endif %}
 
                     {% if project.live_demo_link %}
                         <div class="detail-item">
                             <h3>Project Link:</h3>
-                            <span class="value"><a href="{{ project.live_demo_link }}"  target="_blank">{{ project.live_demo_link }}</a></span>
+                            <span class="value"><a href="{{ project.live_demo_link }}" target="_blank">{{ project.live_demo_link }}</a></span>
                         </div>
                     {% endif %}
 
@@ -189,10 +198,8 @@
                     </div> <!-- CLOSE: centered-container -->
                 {% endif %}
             </div> <!-- CLOSE: details column -->
-        </div>
-    </div>
-</div>
-</div>
-{% include 'Portfolio/includes/footer.html' %}
+        </div> <!-- CLOSE: row -->
+</div> <!-- CLOSE: container-fluid -->
 
+{% include 'Portfolio/includes/footer.html' %}
 {% endblock %}
