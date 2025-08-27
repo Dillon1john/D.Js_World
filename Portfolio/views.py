@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 
-from django.views.generic import TemplateView,  ListView, DetailView
+from django.views.generic import TemplateView, ListView, DetailView
 from .models import *
 from django.views import View
 from django.contrib import messages
@@ -62,7 +62,7 @@ def send_contact_email(name, email, subject, message):
         # Debug: Print the email settings
         print(f"DEFAULT_FROM_EMAIL: {settings.DEFAULT_FROM_EMAIL}")
         print(f"EMAIL_HOST_USER: {settings.EMAIL_HOST_USER}")
-        
+
         # Send the email
         send_mail(
             subject=subject,
@@ -96,9 +96,16 @@ class ProjectListView(ListView):
     ordering = ['title']
     context_object_name = 'projects'
     paginate_by = 6
-    
+
     def get_queryset(self):
         queryset = super().get_queryset()
+        category = self.request.GET.get('category', 'all')
+        language = self.request.GET.get('language', 'all')
+
+        if category != 'all':
+            queryset = queryset.filter(category__name=category)
+        if language != 'all':
+            queryset = queryset.filter(programming_language__name=language)
         return queryset
 
     def get_context_data(self, **kwargs):
